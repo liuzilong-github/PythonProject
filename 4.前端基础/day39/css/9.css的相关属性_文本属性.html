@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css的相关属性: 文本属性</title>
+    <style>
+        .p0
+        {
+            font-size: 16px;
+            width: 200px;height: 200px;background-color: red;
+            /* 字符间距 */
+            letter-spacing: 5px;
+            /* 文本的首行缩进 */
+            /* px代表像素 */
+            /* text-indent: 32px; */
+            /* 1em = 1个元素的大小 按照字体比例缩进 */
+            text-indent: 2em;
+        }
+
+        .p1
+        /* 强制换行 纯英文不会默认换行 */
+        {word-wrap:break-word;}
+
+        .p2
+        /* 强制不换行 中文默认换行 */
+        {white-space: nowrap;}
+
+        .p3
+        /* 设置height与line-height数值相同,可以让文字在垂直方向上居中 */
+        {
+            font-size: 16px;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            background-color: goldenrod;
+        }
+
+        .p4
+        /* text-align:left/center/right 文本水平对齐的方式 */
+        {
+            font-size: 16px;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            background-color: goldenrod;
+            text-align: center;
+        }
+
+        .p5
+        /* text-decoration:overline/line-through/underline/none 上划线/中划线/下划线 */
+        {text-decoration: none;}
+
+        .p6 img
+        /* vertical-align:top/middle/bottom 文本垂直对齐方式[一般都是在图片排版的时候使用] */
+        {vertical-align: -600%}
+
+        /* 
+            text-shadow相关设置
+            none: 无阴影
+            length>①： 第1个长度值用来设置对象的阴影水平偏移值。可以为负值 
+            <length>②： 第2个长度值用来设置对象的阴影垂直偏移值。可以为负值 
+            <length>③： 如果提供了第3个长度值则用来设置对象的阴影模糊值。不允许负值 
+            <color>： 设置对象的阴影的颜色
+        */
+        .p7
+        {text-shadow: 7px 4px 10px gray;}
+
+    </style>
+</head>
+<body>
+    <p class="p0 p1">setwordxiangguanpropertyhahahah</p>
+    <p class="p0 p2">设置文本属性111222233asd设置文本属性设置文本属性</p>
+    <p class="p3">本属性</p>
+    <p class="p4">本属性</p>
+    <a href="" class="p5">本属性</a>
+    <del>特价取消</del>
+    <p class="p6"> <img src="tupian1.png"> <a href="">点我跳转</a> </p>
+    <p class="p7">我是炫酷的阴影效果</p>
+</body>
+</html>

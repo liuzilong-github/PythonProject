@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <App></App>
+    </div>
+</body>
+<script src="vue.js"></script>
+<script src="axios.js"></script>
+<script src="vue-router.js"></script>
+<script>
+    let Home = {
+        data(){
+            return {
+                msg:'我是home组件',
+            }
+        },
+        template:`
+            <div class="home">
+                <h1>{{msg}}</h1>
+            </div>
+        `,
+    };
+
+    let Course = {
+        data(){
+            return {
+                msg:'我是Course组件',
+            }
+        },
+        template:`
+            <div class="course">
+                <h1>{{msg}}</h1>
+            </div>
+        `
+    }
+
+    const routes = [
+        {path:'/home', component: Home},
+        {path:'/course', component: Course},
+    ]
+
+    let router = new VueRouter({
+        routes,
+    })
+
+    let App = {
+        data(){
+            return {
+                num:100,
+            }
+        },
+        template:`
+            <div class="app">
+                <router-link to="/home">首页</router-link>
+                <router-link to="/course">课程页</router-link>
+                <router-view></router-view>
+            </div>
+        `,
+        methods:{
+
+        }
+    }
+
+    let vm = new Vue({
+        el:'#app',
+        router,
+        components:{
+            App,
+        }
+    })
+</script>
+</html>

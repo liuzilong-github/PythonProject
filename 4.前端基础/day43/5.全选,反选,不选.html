@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选,反选,不选</title>
+    <style>
+        *
+        {margin: 0px;padding: 0px;}
+        ul
+        {list-style: none;}
+        #ul1 li
+        {float: left;}
+        #ul1 li button
+        {width: 80px; height: 30px;}
+        #ul1 li button:hover
+        {background-color: tan;}
+        #ul2
+        {clear: both;}
+    </style>
+</head>
+<body>
+    <ul id="ul1">
+        <li><button>全选</button></li>
+        <li><button>不选</button></li>
+        <li><button>反选</button></li>
+    </ul>
+
+    <ul id="ul2">
+        <li><input type="checkbox">看电影</li>
+        <li><input type="checkbox">吃面</li>
+        <li><input type="checkbox">烫头</li>
+        <li><input type="checkbox">跑步</li>
+        <li><input type="checkbox">篮球</li>
+    </ul>
+
+    <script>
+        // 获取btn节点对象
+        var btn1 = document.querySelector("#ul1 li:nth-child(1) button");
+        var btn2 = document.querySelector("#ul1 li:nth-child(2) button");
+        var btn3 = document.querySelector("#ul1 li:nth-child(3) button");
+
+        // 全选
+        btn1.onclick = function(){
+            // 获取#ul2 li离得input
+            /*
+            var data_lst = document.getElementById("ul2").getElementsByTagName("input");
+            console.log(data_lst);
+            */
+            var data_lst = document.querySelectorAll("#ul2 li input");
+            console.log(data_lst);
+            // 获取数组当中每一个input节点元素对象
+            for(var input of data_lst){
+                console.log(input.checked);
+                // 设置节点input的cheecked属性为true
+                input.checked = true;
+            };
+        };
+
+        // 不选
+        btn2.onclick = function(){
+            var data_lst = document.querySelectorAll("#ul2 li input")
+            for(var input of data_lst){
+                input.checked = false;
+            };
+        };
+
+        // 反选
+        btn3.onclick = function(){
+            var data_lst = document.querySelectorAll("#ul2 li input")
+            for(var input of data_lst){
+                if(input.checked === false){
+                    input.checked = true;
+                }else{
+                    input.checked = false;
+                };
+            };
+        };
+    </script>
+</body>
+</html>

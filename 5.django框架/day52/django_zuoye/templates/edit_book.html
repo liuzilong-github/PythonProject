@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+    <title>编辑书籍</title>
+{% endblock %}
+
+{% block content_title %}
+    <h1>编辑书籍</h1>
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+        <div class="form-group">
+            <label for="title">书籍名称</label>
+            <input type="text" value={{ old_book_obj.title }} class="form-control" id="title" placeholder="书籍名称" name="title">
+        </div>
+        <div class="form-group">
+            <label for="price">价格</label>
+            <input type="text" value={{ old_book_obj.price }} class="form-control" id="price" placeholder="价格" name="price">
+        </div>
+        <div class="form-group">
+            <label for="publishDate">出版日期</label>
+            <input type="date" value={{ old_book_obj.publishDate|date:'Y-m-d' }} class="form-control" id="publishDate" placeholder="出版日期" name="publishDate">
+        </div>
+        <div class="form-group">
+            <label for="publish">出版社</label>
+            <select class="form-control" id="publish" name="publishs_id">
+                {% for publish in publish_objs %}
+                    {% if publish == old_book_obj.publishs %}
+                        <option value="{{ publish.id }}" selected>{{ publish.name }}</option>
+                    {% else %}
+                        <option value="{{ publish.id }}">{{ publish.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="author">作者</label>
+            <select name="authors" id="author" class="form-control" multiple>
+                {% for author in author_objs %}
+                    {% if author in old_book_obj.authors.all %}
+                        <option value="{{ author.id }}" selected>{{ author.name }}</option>
+                    {% else %}
+                        <option value="{{ author.id }}">{{ author.name }}</option>
+                    {% endif %}
+
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success pull-right">提交</button>
+    </form>
+{% endblock %}

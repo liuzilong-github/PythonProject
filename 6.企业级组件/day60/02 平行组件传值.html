@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <App></App>
+    </div>
+</body>
+<script src="vue.js"></script>
+<script src="axios.js"></script>
+<script>
+    // 先声明一个公交车
+    let bus = new Vue();
+
+    Vue.component('t1', {
+        data(){
+            return {
+                msg:'hello',
+                num:200,
+            }
+        },
+        template:`
+            <div class="c1">
+                <h1>{{msg}}</h1>
+                <button @click="kk">zouni</button>
+            </div>
+        `,
+        
+        // created方法中的bus.$emit('xxx', this.num);不能正常放值
+        // created(){
+        //     // 2. 往公交车上放值
+        //     bus.$emit('xxx', this.num);
+        // },
+        methods:{
+            kk(){
+                bus.$emit('xxx', this.num);
+            }
+        }
+    });
+
+    Vue.component('t2', {
+        data(){
+            return {
+                msg: 'hello2',
+                num:1002,
+                t1_num:''
+            }
+        },
+        template:`
+            <div class=t2>
+                <h1>{{msg}}</h1>
+                <h2>{{t1_num}}</h2>
+            </div>
+        `,
+        created(){
+            bus.$on('xxx', (val)=>{
+                // console.log('1111')
+                console.log(val);
+                this.t1_num = val;
+            });
+        }
+    })
+
+    let App = {
+        data(){
+            return {
+                'xxx':'ooo',
+                num:1001,
+                son_data:''
+            }
+        },
+        template:`
+            <div class="app">
+                <h3>{{son_data}}</h3>
+                <t1></t1>
+                <t2></t2>
+            </div>
+        `,
+        methods:{
+            recv_data(val){
+                this.son_data = val;
+            }
+        }
+    }
+
+    let vm = new Vue({
+        el:'#app',
+        components:{
+            App,
+        }
+    })
+</script>
+</html>

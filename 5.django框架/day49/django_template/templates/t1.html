@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block css %}
+    <style>
+        .c1{
+            background-color: green;
+            height: 40px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h1>性感美女,在线指导</h1>
+    {{ block.super }}   {# 显示模版内容 #}
+{% endblock %}

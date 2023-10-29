@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json对象</title>
+</head>
+<body>
+    <script>
+        var data = {
+            "name":"文东",
+            age: 20,
+            "sleep": function(){
+                alert("文东一天睡23小时,还有一个小时上厕所");
+            }
+        }
+
+        // js对象 => json格式的字符串
+        var res = JSON.stringify(data);
+        console.log(res, typeof(res));  // {"name":"文东","age":20}
+
+        // json格式的字符串 => js对象
+        res = '{"name":"文东","age":20}';   // success
+        // res = "{'name':90, 'age':40}";  // error 引号必须是双引号
+        var res2 = JSON.parse(res);
+        console.log(res2, typeof(res2));
+    </script>
+</body>
+</html>

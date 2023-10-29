@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>强制转换 - String</title>
+</head>
+<body>
+    <script>
+        // 字符串的强转是在原有类型的两边套上引号,表达字符串类型;
+        var a = 100;
+        var a = 4.89;
+        var a = "abc";
+        var a = [];
+        var a = undefined;
+        var a = null;
+        var a = NaN;
+        var res = String(a);
+        console.log(res, typeof(res));
+    </script>
+</body>
+</html>

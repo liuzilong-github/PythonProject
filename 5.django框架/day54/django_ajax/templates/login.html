@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+    <h1>32期皇家会所会员登录页面</h1>
+    <form action="" method="post">
+        <div>{{ error }}</div>
+        用户名: <input type="text" name="username" value="{{ username }}">
+        密码: <input type="password" name="password" value="{{ password }}">
+        <input type="submit">
+    </form>
+
+    <hr>
+
+    {# <iframe src="http://www.baidu.com" frameborder="0" style="width: 100%;height: 500px"></iframe> #}
+
+    <h1>32期皇家会所会员ajax登录页面</h1>
+
+    用户名: <input type="text" id="username">
+    密码: <input type="password" id="password">
+    <button id="btn">ajax提交</button>
+
+    <h1 id="ajax_error" style="color: red"></h1>
+    <h1 id="msg"></h1>
+    <ul id="food_ul">
+
+    </ul>
+
+</body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        // 当后台响应的响应头键值对中, 包含 content-type:application\json ,
+        // ajax接收到本次请求之后,会查看响应头键值对有没有content-type,如果有,并且值为application\json,那么
+        // ajax就知道,本次响应回来的数据就是json数据,那么ajax会直接对响应数据进行反序列化,然后再交给success对应的
+        // 回调函数作为参数
+        $.ajax({
+            url: '/index/',
+            type: 'get',
+            success: function(res){
+                console.log('>>>>>>>>>>', res, typeof res);
+                $('#msg').text(res.name);
+                // var userinfo = JSON.parse(res);
+                // console.log('>>>>>>>>', userinfo, typeof userinfo);
+                // $('#msg').text(userinfo.name);
+            },
+        });
+
+        $.ajax({
+            url: '/food/',
+            type: 'get',
+            success: function(res){
+                console.log('>>>>>>>>', res, typeof res);
+                // var food_list = JSON.parse(res);
+                // console.log('>>>>>>>>', food_list, typeof food_list);
+
+                var ulEle = $('#food_ul');
+                // 创建li标签
+                // {$.each(food_list, function(k, v){
+                $.each(res, function(k, v){
+                    // k是列表的索引,v是列表的元素
+                    var newLiEle = document.createElement('li');
+                    // 给li标签添加文本内容
+                    newLiEle.innerText = v;
+                    // 将li标签添加到ul标签中
+                    ulEle.append(newLiEle);
+                })
+            },
+        });
+
+        $('#btn').click(function(){
+            var uname = $('#username').val();
+            var password = $('#password').val();
+            $.ajax({
+                url:'/login/',
+                type:'post',   // 请求方法
+                data:{xname: uname, pwd: password},    // xname: chao  pwd: 123   request.POST.get('xname')
+                success:function(res){
+                    // res接收的是请求成功之后的响应结果,如何判断ajax请求成功或者失败,是由后台来决定
+                    // 后台响应的错误码如果是2xx\3xx等,ajax发现应用状态码为2xx\3xx等,ajax就知道请求成功了
+                    // ajax会自动触发success对应的回调函数,并且将接收到的响应传值给了函数
+                    console.log('success', res);
+                },
+                error:function(error){
+                    // 后台响应的状态码为4xx\5xx表示请求失败,或者是服务器出问题了,没有正常响应本次请求的内容
+                    // ajax接收到响应后,如果发现响应状态码为4xx\5xx,那么ajax会自动触发error对应的函数,并将响应结果传值给函数作为参数
+                    console.log('error', error);
+                    // $('#ajax_error').text('输入的用户名或者密码有误!');
+                    $('#ajax_error').text(error.responseText);
+                }
+            })
+        })
+
+    </script>
+
+</html>

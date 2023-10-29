@@ -1,0 +1,235 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/liuzilong/Desktop/{",
+			"settings":
+			{
+				"buffer_size": 1690,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "{"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Install Package",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 193.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/liuzilong/Documents/个人/PythonProject"
+	],
+	"file_history":
+	[
+		"/Users/liuzilong/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/Users/liuzilong/Library/Application Support/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/Users/liuzilong/Desktop/DrawPrizeAms.js",
+		"/Users/liuzilong/Desktop/测试总结",
+		"/Users/liuzilong/Desktop/2021-12-21T16:26:58: Error: 配置中心nodejs-DataCollect",
+		"/Users/liuzilong/Downloads/Ticaiskp_2.10.0_20211129150929_50c3818d_Idc_Release_signed/assets/weex-rax-extra-api.js",
+		"/Users/liuzilong/Downloads/Ticaiskp_2.10.0_20211129150929_50c3818d_Idc_Release_signed/assets/h5error/js/jquery-3.4.1.min.js",
+		"/Users/liuzilong/Downloads/Ticaiskp_2.10.0_20211129150929_50c3818d_Idc_Release_signed/assets/infoBeatCj.js",
+		"/Users/liuzilong/Downloads/Ticaiskp_2.10.0_20211129150929_50c3818d_Idc_Release_signed/assets/stat/js/chunk-vendors.1720978f.js",
+		"/Users/liuzilong/Downloads/Ticaiskp_2.10.0_20211129150929_50c3818d_Idc_Release_signed/assets/stat/js/chunk-common.5ddee6bb.js",
+		"/Users/liuzilong/Downloads/Ticaiskp_2.10.0_20211129150929_50c3818d_Idc_Release_signed/AndroidManifest.xml",
+		"/Users/liuzilong/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/f85f7583ea40cbe93dedfb1920d2d325/Message/MessageTemp/91c42730d24b9a8fd50ce4a8d158e046/File/保存方案一期接口说明文档(1).md",
+		"/Users/liuzilong/Downloads/README.md"
+	],
+	"find":
+	{
+		"height": 32.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": true,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/liuzilong/Desktop/{",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1690,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								724,
+								724
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 45.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "PythonProject-project.sublime-project",
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

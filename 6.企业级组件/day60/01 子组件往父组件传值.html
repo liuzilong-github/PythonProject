@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <App></App>
+    </div>
+</body>
+<script src="vue.js"></script>
+<script src="axios.js"></script>
+<script>
+    let Vheader = {
+        data(){
+            return {
+                nav_list:['个人中心','登录','注册','username'],
+                header_num:80,
+            }
+        },
+        template:`
+            <div>
+                <h1>{{nav_list}}</h1>
+                <h2>{{nav_list}}</h2>
+                <button @click="zouni">go</button>
+            </div>
+        `,
+        methods:{
+            zouni(){
+                // 给父组件传值
+                this.$emit('ffunc', this.header_num);
+            }
+        }
+    };
+
+    let xxx = {
+        data(){
+            return {
+                content_list:['xxx','ooo']
+            }
+        },
+        template:'<h1 style="color:red;">{{content_list}}</h1>',
+    };
+
+    let App = {
+        data(){
+            return {
+                'xxx':'ooo',
+                num:1001,
+                son_data:'',
+            }
+        },
+        template:`
+            <div class="app">
+                <Vheader @ffunc="recv_data"></Vheader>
+                <xxx></xxx>
+                <h3>{{son_data}}</h3>
+            </div>
+        `,
+        components:{
+            Vheader,
+            xxx,
+        },
+        methods:{
+            recv_data(val){
+                this.son_data = val;
+            }
+        }
+    }
+
+    let vm = new Vue({
+        el:'#app',
+
+        components:{
+            App,
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist</title>
+    <style type="text/css">
+        .list_con{
+            width: 600px;
+            margin: 50px auto 0;
+        }
+        .inputtxt{
+            width: 550px;
+            height: 30px;
+            border: 1px solid #ccc;
+            padding: 0px;
+            text-indent: 10px;
+        }
+        .inputbtn{
+            width: 40px;
+            height: 32px;
+            padding: 0px;
+            border: 1px solid #ccc;
+        }
+        .list{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            margin-top: 20px;
+        }
+        .list li{
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #ccc;
+        }
+        .list li span{
+            float: left;
+        }
+        .list li a{
+            float: right;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="list_con">
+        <h2>To do list</h2>
+        <input type="text" name="" id="txt1" class="inputtxt" v-model="input_text">
+        <input type="button" name="" value="增加" id="btn1" class="inputbtn" @click="add">
+
+        <ul id="list" class="list">
+            <!-- javascript:; # 阻止a标签跳转 -->
+            <li v-for="(value,index) in data_list" :key="index">
+                <span>{{value}}</span>
+                <a href="javascript:;" class="up" @click="up(index)"> ↑ </a>
+                <a href="javascript:;" class="down" @click="down(index)"> ↓ </a>
+                <a href="javascript:;" class="del" @click="del(index)">删除</a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'.list_con',
+        data(){
+            return {
+                data_list:[
+                    '学习html','学习css','学习js'
+                ],
+                input_text:'',
+            }
+        },
+        methods:{
+            // 增加记录
+            add(){
+                this.data_list.push(this.input_text);
+                this.input_text = '';
+            },
+            // 删除
+            del(index){
+                this.data_list.splice(idex,1);
+            },
+            up(index){
+                if (index > 0){
+                    let up_ele = this.data_list.splice(index,1)[0];
+                    this.data_list.splice(index-1,0,up_ele);
+                }
+            },
+            dowm(index){
+                if (index < this.data_list.length -1){
+                    let down_ele = this.data_list.splice(index,1)[0];
+                    this.data_list.splice(index+1,0,down_ele);
+                }
+            }
+        }
+    })
+</script>
+</html>

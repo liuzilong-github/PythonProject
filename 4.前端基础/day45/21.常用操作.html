@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用操作</title>
+    <style>
+        .dd{
+            background-color: red;
+            height: 200px;
+            width: 200px;
+        }
+
+        .xdd{
+            background-color: green;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="uname">
+    <input type="text" id="xx">
+
+    <select name="hobby" id="hobby">
+        <option value="1">康宇康老师</option>
+        <option value="2">张保张老师</option>
+        <option value="3">沈思雨老师</option>
+    </select>
+
+    <div class="dd"></div>
+
+    <input type="text" id="inp">
+
+    <script src="./jquery.js"></script>
+    <script>
+        // focus:获取光标时触发的事件
+        $("#uname").focus(function(){
+            $(this).css({'background=color':'yellow'});
+        });
+
+        // blur:光标离开时触发的事件
+        $("#uname").blur(function(){
+            $(this).css({'background-color':'green'});
+        });
+
+        // change:域内容发生变化时触发的事件,在input标签中用的比较少,一般多用在select标签上
+        $("#xx").change(function(){
+            console.log($(this).val());
+        });
+
+        $("#hobby").change(function(){
+            console.log($(this).text());
+            console.log(this.options);   // 获取当前select标签对象所有的option子标签对象
+            console.log(this.selectedIndex);    // 获取选中的option标签的索引位置
+            console.log(this.options[this.selectedIndex].innerText);    // 获取选中的option标签的值
+        });
+
+        // hover:鼠标悬浮事件,对原生js的mouseenter和mouseout时间的封装
+        $(".dd").hover(
+            //鼠标进入时触发的事情
+            function(){
+                $(this).addClass('xdd');
+            },
+            // 鼠标离开时触发的事情
+            function(){
+                $(this).removeClass('xdd');
+            }
+        );
+
+        // input事件,只能用on绑定,根据用户输入的内容,实时触发的动作
+        $("#inp").on('input', function(){
+            console.log($(this).val());
+        });
+    </script>
+</body>
+</html>

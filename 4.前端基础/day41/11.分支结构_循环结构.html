@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分支结构: 循环结构</title>
+</head>
+<body>
+    <script>
+        // ### 1.for循环
+        /*
+            语法特征:
+                1号     2号     3号
+                for(初始值;判断条件;自增自减的值){
+                    code1;
+                    code2...
+                }
+                先执行1,2满足后执行代码体
+                然后执行3,2满足后在执行代码体
+                以此类推...
+                直到不满足条件终止循环
+        */
+        // 打印1~100
+        for(var i = 1; i <= 100; i++){
+            console.log(i);
+        }
+        // 打印1~100,遇到50自动跳过
+        for(var i = 1; i <= 100; i++){
+            if(i == 50){
+                continue;
+            }
+            console.log(i);
+        }
+
+        // ### 2.while循环
+        // 遇到5,终止循环
+        var i = 0;
+        while(i < 10){
+            if(i == 5){
+                break;
+            }
+            console.log(i);
+            i++;
+        };
+
+        console.log("<===============第一组=================>");
+        // ### 3.for(var i in Iterable) 获取的是数组中的索引号
+        var arr = ["孟浩然","赵子龙","康乃馨","张飞","汪精卫"];
+
+        for(var i in arr){
+            console.log(i);
+            console.log(arr[i]);
+        };
+
+        console.log("<===============第二组=================>");
+        // 获取的是js对象中的键
+        var dic = {"a":"王同培","b":"马村你","c":"张宇"};
+
+        for(var i in dic){
+            console.log(i);
+            console.log(dic[i]);
+        };
+
+        console.log("<===============第三组=================>");
+        // ### 4.for(var i of Iterable) 获取的是数组中的值;等价于python中的[for i in Iterable]
+        for(var i of arr){
+            console.log(i);
+        };
+
+        console.log("<===============第四组=================>");
+        // 注意点: for(var i of dic) 不能遍历js对象[字典]   error
+        /*
+        var dic = {"a":"王同培","b":"马村你","c":"张宇"};
+        
+        for(var i of dic){
+            console.log(i);
+        };
+        */
+        // 字符串的遍历
+        for(var i of "abcdefg"){
+            console.log(i);
+        };
+    </script>
+</body>
+</html>

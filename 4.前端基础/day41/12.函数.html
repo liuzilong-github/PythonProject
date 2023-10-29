@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+</head>
+<body>
+    <script>
+        // ### 1.函数
+        // 方式一:普通函数(存在预加载机制,提前把函数加载到内存中,然后代码整体在执行)
+        func1()
+        function func1(){
+            console.log("我是func1~");
+        };
+
+        // 方式二:匿名函数(匿名函数没有预加载机制,必须先定义在调用)
+        // func2()     error
+        var func2 = function(){
+            console.log("我是func2~");
+        };
+        func2();
+
+        // 方式三:不推荐(了解)
+        /*
+        var func3 = new Function("alert('我是func3~');alert('我是33333');");
+        console.log(func3, typeof(func3));
+        func3();
+        var func4 = new Function("x", "y", "alert(x+y)");
+        func4(5,6);
+        */
+
+        // 方式四:闭包函数
+        function func5(){
+            var a = 100;
+            function func6(){
+                console.log(a);
+                return "我是闭包函数";
+            };
+            return func6;
+        };
+
+        var func = func5();
+        var res = func();
+        console.log(res);
+
+        // 方式五:箭头函数
+        function mysum(x,y){
+            return x+y;
+        };
+        res = mysum(5,6);
+        console.log(res);
+
+        var mysum = (x,y) => {return x+y};
+        var res = mysum(5,6);
+        console.log(res);
+
+        // ### 2.函数参数(普通位置参数, 默认参数)
+        // js中的形参实参不匹配不会报错
+        function func7(a, b, c=3){
+            console.log(a,b,c);
+        };
+        func7(10,11);
+        func7(10,11,12);
+        func7(10,11,12,13);
+
+        // arguments 自动收集所有的实参
+        // 计算任意个数值的累加和
+        function func8(){
+            console.log(a,b);
+            console.log(arguments);
+            var total = 0;
+            for(var i of arguments){
+                total += i;
+                console.log(i);
+            };
+            return total;
+        };
+        var res = func8(1,100,2,3,4,5,56,8);
+        console.log(res);
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪对象选择器</title>
+    <style>
+        .name
+        {color:goldenrod;}
+
+        /* 在内容之前插入 */
+        .name::before
+        {
+            content:"我问:";
+            color:green;
+        }
+
+        /* 在内容之后插入 */
+        .name::after
+        {
+            content:"肯定对!";
+            color:magenta;
+        }
+        
+        /* 鼠标选中后的样式 */
+        .name::selection
+        {
+            background-color:mediumaquamarine;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <span class="name">王文很帅,对不对?</span>
+</body>
+</html>

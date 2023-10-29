@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="xx">
+        <input :type="tt"> <button v-on:click="showp">{{ msg }}</button>
+        <input :type="tt"> <button @click="showp">{{ msg }}</button>
+    </div>
+</body>
+
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:'#xx',   // #xx css选择器
+        data(){
+            return {
+                tt:'password',
+                msg:'显示密码',
+            }
+        },
+        methods:{
+            // showp:function(){
+            //
+            // }
+            showp(){    // 单体模式
+                if(this.tt === 'password'){
+                    this.tt = 'text';
+                    this.msg = '隐藏密码';
+                }else{
+                    this.tt = 'password';
+                    this.msg = '显示密码';
+                }
+            }
+        }
+    })
+</script>
+
+</html>

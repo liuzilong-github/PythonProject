@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM文档顶级节点 document object model</title>
+</head>
+<body>
+    <div id="box">
+        <p class="p1">张三</p>
+        <p class="p2">李四</p>
+        <p class="p3">赵六</p>
+        <p name="ceshi1"></p>
+        <p name="ceshi1"></p>
+    </div>
+
+    <div>
+        <input type="text" name="username">
+        <input type="password" name="pwd">
+
+        <p1>112233</p1>
+        <box>556677</box>
+    </div>
+
+    <script>
+        console.log(document)
+        // ### 1.通过id获取div节点对象
+        var box = document.getElementById("box");
+        console.log(box);
+
+        // ### 2.通过类名获取节点对象(返回的是数组)
+        var p2 = document.getElementsByClassName("p2");
+        console.log(p2, typeof(p2));
+        // 获取李四节点对象
+        var lisi = p2[0];
+        console.log(lisi);
+        // 获取赵六节点对象
+        var p3 = document.getElementsByClassName("p3");
+        var zhaoliu = p2[1];
+        console.log(zhaoliu);
+
+        // ### 3.通过标签获取节点对象(返回的是数组)
+        var p = document.getElementsByTagName("p");
+        console.log(p);
+        console.log(p[1]);
+
+        // ### 4.通过标签上的name属性[返回的是数组] 一般用在input表单中
+        var ceshi1 = document.getElementsByName("username")[0];
+        console.log(ceshi1);
+
+        // ### 通过css选择器获取对应的元素节点
+
+        // ### 5.querySelector, 只获取找到的第一个
+        var p1 = document.querySelector(".p1");
+        console.log(p1);
+        var box = document.querySelector("#box");
+        console.log(box);
+        // input表单有两个,但是只能获取第一个;
+        var input = document.querySelector("input");
+        console.log(input);
+
+        // ### 6.querySelectorAll 获取所有找到的元素节点,返回数组
+        var all = document.querySelectorAll("input[name=username]");
+        console.log(all);
+
+    </script>
+</body>
+</html>

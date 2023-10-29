@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件上传</title>
+</head>
+<body>
+    <form action="" method="" encttype="multipart/form-data">
+        <!-- 文件上传 -->
+        头像: <input type="file" name="myfile">
+        <hr>
+        <!-- 大段文本框 -->
+        <textarea name="info" style="width:100px;height:100px;background-color:tan">请填写相关数据</textarea>
+        <hr>
+        <!-- 隐藏的表单框 => 隐藏要修改的数据id -->
+        <input type="hidden" name="sid" value="13">
+        <hr>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

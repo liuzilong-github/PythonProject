@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位:相对定位 ralative</title>
+    <style>
+        .gg
+        {
+            width: 200px;
+            height: 200px;
+            border: solid 1px red;
+        }
+
+        .c1
+        {background: violet;}
+
+        .c2
+        {
+            background: tan;
+            position:relative;
+            top:10px;
+            left:100px;
+            z-index:2;
+        }
+
+        .c3
+        {background: blue;}
+
+        .c4
+        {background: green;}
+    </style>
+</head>
+<body>
+    <!-- 
+        相对定位: 参考点是他自己本身,相对于原始的位置进行定位
+        如果添加了定位: 无论是否添加(相对,绝对,固定)属性,添加之后会增加额外的其他属性
+        z-index 控制层叠关系: 值越大越在上层,值越小越在下层
+            left
+            top
+            right
+            bottom
+            z-index
+     -->
+     <div class="c1 gg"></div>
+     <div class="c2 gg"></div>
+     <div class="c3 gg"></div>
+     <div class="c4 gg"></div>
+</body>
+</html>

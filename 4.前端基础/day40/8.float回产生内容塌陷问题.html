@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float 会产生内容塌陷问题</title>
+    <style>
+        .content
+        {border: solid 1px red;}
+
+        .gg
+        {
+            width: 150px;
+            height: 150px;
+            border: solid 1px red;
+            float: left;
+        }
+
+        .c1
+        {background: thistle;}
+
+        .c2
+        {background: yellowgreen;}
+
+        .c3
+        {background: blue;}
+
+        .c4
+        {background: green;}
+
+        .content2
+        {border: solid 1px red;}
+
+        .content2::after
+        {
+            content:"";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <!-- 解决方法1 -->
+    <div class="content">
+        <div class="c1 gg"></div>
+        <div class="c2 gg"></div>
+        <div class="c3 gg"></div>
+        <div class="c4 gg"></div>
+        <div style="clear:both;"></div>
+    </div>
+    
+    <!-- 解决方法2 -->
+    <div class="content2">
+        <div class="c1 gg"></div>
+        <div class="c2 gg"></div>
+        <div class="c3 gg"></div>
+        <div class="c4 gg"></div>
+    </div>
+</body>
+</html>

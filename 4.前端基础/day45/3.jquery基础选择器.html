@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery基础选择器</title>
+</head>
+<body>
+    <ul>
+        <li class="c1">戈隆</li>
+        <li>高雪峰</li>
+        <li class="c1">何徐彤</li>
+        <li>宋健</li>
+        <li id="weige">刘立伟</li>
+        <li>王通配</li>
+    </ul>
+
+    <script src="./jquery.js"></script>
+    <script>
+        $("#weige");    // id选择器
+        $(".c1");       // 类值选择器 示例: $(".c1").css({'color':'green'}); 设置字体颜色
+        $("li");        // 标签选择器,写标签名称
+    </script>
+</body>
+</html>

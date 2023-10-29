@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+</head>
+<body>
+    <h2>{{ name }}</h2>
+    <h2>{{ age }}</h2>
+    <h2>{{ hooby.0 }}</h2>  <!-- 万能的句点号 -->
+    <h2>{{ dd.a }}</h2>
+    <h2>{{ a.username }}</h2>
+    <h2>{{ a.my_hobby }}</h2>   <!-- 调用对象的方法时,不能加括号,所以不能调用有参数的方法 -->
+    <h2>{{ hobby|length }}</h2>
+    <h2>{{ xx|default:"啥也不是" }}</h2>    <!-- 当xx为空或者后台没有给这个数据时,会显示默认值 -->
+    <h2>{{ file_size|filesizeformat }}</h2>
+    <h2>{{ ss|slice:"0:5" }}</h2>
+    <h2>{{ now|date:"Y-m-d H:i:s" }}</h2>
+    <h2>{{ a_tag|safe }}</h2>
+    <h2>{{ aa|truncatechars:"8" }}</h2>     <!-- 截断字符,注意8包含了那三个点 -->
+    <h2>{{ aa|truncatewords:"2" }}</h2>     <!-- 以空格作为截断符号,截断单词,注意2不包含那三个点 -->
+    <h2>{{ aa|cut:" " }}</h2>
+    <h2>{{ hobby|join:"+" }}</h2>
+
+</body>
+</html>

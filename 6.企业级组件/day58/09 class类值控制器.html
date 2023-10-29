@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c1{
+            color: red;
+        }
+        .c2{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="xx">
+        <p>吟诗一首</p>
+        <p class="c1" :class="{c2:num<=10}">床前明月光</p>
+        <p :class="{c1:num>10,c2:num<=10}">床前明月光</p>
+        <p :class="xx">床前明月光</p>
+        <!-- class类值控制语法: :class={类值:判断条件(布尔值或者得到布尔值的算是),类值:判断条件...}
+            布尔值或者得到布尔值的算式: 里面直接可以使用数据属性
+        -->
+    </div>
+</body>
+
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:'#xx',
+        data(){
+            return {
+                num:5,
+                xx:'c1',
+            }
+        },
+        methods:{
+
+        }
+    })
+</script>
+
+</html>

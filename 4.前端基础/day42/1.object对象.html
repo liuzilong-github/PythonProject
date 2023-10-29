@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object对象</title>
+</head>
+<body>
+    <script>
+        // ### 1.定义对象方法一
+        var obj = new Object();
+        console.log(obj, typeof(obj));
+        obj.name = "孙坚";
+        obj.age = 18;
+        obj.weight = "200斤";
+        obj.eat = function(){
+            alert("我会吃竹子");
+        };
+        console.log(obj.name);
+        // obj.eat();
+
+        // ### 2.定义对象方法二
+        /* 对象中的成员不要使用单引号,在特殊场景中,比如json格式化字符串的转换中会报错; */
+        var obj = {
+            name: "张三",
+            "age": 20,
+            sex: "男性",
+            drink: function(something){
+                console.log("我会喝牛栏山", something);
+            }
+        };
+        // 调用方式一
+        console.log(obj.sex);
+        obj.drink("老白干");
+        // 调用方式二
+        console.log(obj["age"]);
+        obj["drink"](1);
+        // 注意点
+        var str = "name";
+        console.log(obj.str);
+        console.log(obj.name);
+        console.log(obj[str]);  // 相当于obj["name"]
+
+        // eval 可以吧字符串当成代码执行
+        eval("console.log(333)");
+
+        // ### 3.定义对象方法三
+        /* 类比python中定义类的写法, this等价于self */
+        function Person(name, age, sex){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.func = function(){
+                console.log("我是func");
+                return this.sex;
+            };
+        }
+
+        var obj1 = new Person("刘一峰", 30, "男性");
+        var obj2 = new Person("张三丰", 90, "女性");
+        console.log(obj1.name);
+        var res = obj1.func();
+        console.log(res);
+        console.log(obj2.name);
+        var res = obj2.func();
+        console.log(res);
+
+        // ### 4.遍历对象
+        for(var i in obj1){
+            console.log(i);
+        };
+
+        // ### 5.with(对象) 语法可以直接获取对象成员的值
+        with(obj1){
+            console.log(name);
+            console.log(sex);
+            console.log(age);
+            res = func();
+            console.log(res);
+        };
+        console.log("<============================>")
+        // 将4和5结合,遍历对象中的数据
+        for(var i in obj1){
+            console.log(i, typeof(i))    // name age sex func ...string
+            with(obj1){
+                console.log(eval(i));
+            };
+        };
+    </script>
+</body>
+</html>

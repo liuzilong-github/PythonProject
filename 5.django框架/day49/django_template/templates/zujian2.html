@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        .left-menu{
+            background-color: tan;
+            width: 200px;
+            min-height: 600px;
+        }
+        .item{
+            background-color: yellow;
+            height: 40px;
+            border-bottom: 1px solid red;
+        }
+        .left{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="left">
+        <div class="left-menu">
+            {% for item in data %}
+                <div class="menu1 item">
+                    <a href="/t1/">{{ item }}</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+<script src="jquery.js"></script>
+<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

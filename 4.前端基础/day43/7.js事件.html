@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js事件</title>
+    <style>
+        *
+        {margin: 0px;padding: 0px;}
+        .box
+        {width: 100px;height: 100px;background: green;position: absolute;left: 0px;}
+    </style>
+</head>
+<body>
+    <!-- 1.事件的静态方法 -->
+    <button onclick="func1()">按钮1</button>
+    <div class="box"></div>
+
+    <script>
+        var box = document.getElementsByClassName("box")[0];
+        var t;
+        console.log(box);
+        function func1(){
+            var left = parseInt(window.getComputedStyle(box).left);
+            console.log(left, typeof(left));
+            console.log(box.style.left);
+            t = setInterval(function(){
+                left += 10;
+                box.style.left = `${left}px`;
+            }, 50);
+        };
+
+        // 2.时间的动态绑定
+        // onmouseover 鼠标指针悬停在指定元素上时触发
+        box.onmouseover = function(){
+            clearInterval(t);
+        };
+        // onmouseout 鼠标指针离开指定元素时触发
+        box.onmouseout = function(){
+            func1();
+        };
+    </script>
+
+</body>
+</html>

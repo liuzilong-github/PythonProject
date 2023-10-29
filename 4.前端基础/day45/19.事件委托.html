@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+</head>
+<body>
+    <label>
+        姓名: <input type="text" id="username">
+    </label>
+    <label>
+        爱好: <input type="text" id="hobby">
+    </label>
+    <label>
+        年龄: <input type="text" id="age">
+    </label>
+    <button class="add">保存</button>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>爱好</th>
+                <th>年龄</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>李四</td>
+                <td>18</td>
+                <td><button class="del">删除</button></td>
+            </tr>
+
+            <tr>
+                <td>张三</td>
+                <td>李四</td>
+                <td>18</td>
+                <td><button class="del">删除</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="./jquery.js"></script>
+    <script>
+        // 保存记录
+        $(".add").click(function(){
+            var username = $("#username").val();
+            var hobby = $("#hobby").val();
+            var age = $("#age").val();
+
+            var trEle = `
+                <tr>
+                    <td>${username}</td>
+                    <td>${hobby}</td>
+                    <td>${age}</td>
+                    <td><button class="del">删除</button></td>
+                </tr>`
+            $("tbody").append(trEle);
+        });
+
+        // 删除
+        // 基于事件冒泡,完成事件委托,必须用on进行绑定
+        // 失败作品
+        /*
+            $(".del").click(function(){
+                $(this).parent().parent().remove();
+            });
+        */
+
+        // 成功作品,事件委托,写法: 上层标签对象.on(事件名称, 委托人的选择器, function(){});
+        $("tbody").on("click", ".del", function(){
+            $(this).parent().parent().remove();     // $(this) 还是我们点击的删除按钮标签
+        });
+    </script>
+</body>
+</html>

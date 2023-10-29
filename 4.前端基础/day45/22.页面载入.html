@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面载入</title>
+    <style>
+        .c1{
+            background-color: red;
+            height: 200px;
+            width: 200px;
+        }
+
+        .c2{
+            background-color: blue;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+    <script src="./jquery.js"></script>
+    <script src="t1.js"></script>
+    <script src="t2.js"></script>
+
+    <!-- <script>
+        // 最后执行,当页面加载完成(html\css\图片\视频等等)之后,触发的事件,存在覆盖现象,只能绑定一个,是最后一个生效
+        window.onload = function(){
+            $(".c1").click(function(){
+                $(this).css({'background-color': 'green'});
+            });
+        };
+    </script> -->
+
+    <!-- <script>
+        // jquery的页面载入事件,等页面加载完成(html标签内容)之后,触发事件的动作,并且不存在覆盖现象
+        $(document).ready(function(){
+            $(".c1").click(function(){
+                $(this).css({"background-color":'green'});
+            });
+        });
+    </script> -->
+</head>
+<body>
+    <div class="c1"></div>
+    <img src="http://www.baidu.com/xx.png" alt="">
+    <div class="c2"></div>
+</body>
+</html>

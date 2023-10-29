@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day45作业</title>
+    <style>
+        .box{
+            position: fixed;
+            width: 500px;
+            height: 400px;
+            background-color: greenyellow;
+            display: none;
+        }
+
+        .content{
+            border: solid 1px red;
+            width: 300px;
+            height: 200px;
+            background-color: tan;
+            margin: auto;
+            margin-top: 14%;
+        }
+    </style>
+</head>
+<body>
+    <button id="add">新增</button>
+
+    <div class="box">
+        <div class="content">
+            <span>姓名: <input type="text" id="username"></span>
+            <br>
+            <span>爱好: <input type="text" id="hobby"></span>
+            <br>
+            <button id="determine">确认</button>
+            <button id="cancellation">取消</button>
+        </div>
+    </div>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>姓名</th>
+                <th>爱好</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>金老板</td>
+                <td>开车</td>
+                <td>
+                    <button id="del">开除</button>
+                    <button id="edit">编辑</button>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>景女神</td>
+                <td>茶道</td>
+                <td>
+                    <button id="del">开除</button>
+                    <button id="edit">编辑</button>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>袁浩(袁局)</td>
+                <td>不洗头,不要脸</td>
+                <td>
+                    <button id="del">开除</button>
+                    <button id="edit">编辑</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="../jquery.js"></script>
+    <script>
+        var flag = 0;
+
+        var btn = document.getElementById("add");
+        var box = document.querySelector(".box");
+        
+        // 新增员工
+        btn.onclick = function(){
+            box.style.display = "block";
+            $("#username").val("");
+            $("#hobby").val("");
+        };
+
+        // 开除员工
+        $("tbody").on("click", "#del", function(){
+            $(this).parent().parent().remove();
+        });
+
+        // 编辑员工
+        $("tbody").on("click", "#edit", function(){
+            flag = $(this);
+            box.style.display = "block";
+            var uname = $(this).parent().siblings().eq(1).text();
+            var hobby = $(this).parent().siblings().eq(2).text();
+            $("#username").val(uname);
+            $("#hobby").val(hobby);       
+        });
+
+        // 操作用户信息
+        // 点击确认
+        $("#determine").click(function(){
+            var uname = $("#username").val();
+            var hobby = $("#hobby").val();
+            if(flag === 0){
+                var trEle = `
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>${uname}</td>
+                        <td>${hobby}</td>
+                        <td>
+                            <button id="del">开除</button>
+                            <button id="edit">编辑</button>
+                        </td>
+                    </tr>
+                `;
+                $("tbody").append(trEle);             
+            }else{
+                flag.parent().siblings().eq(1).text(uname);
+                flag.parent().siblings().eq(2).text(hobby);
+            };
+            box.style.display = "none";
+        });
+
+        // 点击取消
+        $("#cancellation").click(function(){
+            box.style.display = "none";
+        });
+    </script>
+</body>
+</html>

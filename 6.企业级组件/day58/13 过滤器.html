@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{price|yuan}}</h1>
+        <!-- <h1>{{price.toFixed(3)}}</h1> -->
+        <h1>{{price|keeptwopoint(1)}}</h1>
+        <h1>{{price|keeptwopoint(1,2,3)}}</h1>  <!-- 传递多个参数 -->
+        <h1>{{price|RMB}}</h1>
+        <h1>{{price|keeptwopoint(2)|RMB}}</h1>  <!-- 连续使用多个过滤器 -->
+    </div>
+</body>
+<script src="vue.js"></script>
+<script>
+    // 全局过滤器:任何对象都可以直接使用这个过滤器
+    Vue.filter('RMB', function(val){
+        return val + 'RMB';
+    })
+
+    let vm = new Vue({
+        el:'#app',
+        data(){
+            return {
+                price:100,
+            }
+        },
+        methods:{
+
+        },
+        // 局部过滤器:只能在当前对象中使用
+        filters:{
+            yuan(val){
+                return val + '元';
+            },
+            keeptwopoint(val,n){
+                return val.toFixed(n)
+            },
+        },
+    });
+</script>
+</html>

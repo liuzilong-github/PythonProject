@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点元素的层级关系</title>
+</head>
+<body>
+    <div id="box">
+        <p>
+            <input type="text" name="username">
+            <input type="password" name="pwd">
+        </p>
+        <p class="p1">张三</p>
+        <p class="p2">李四</p>
+        <p class="p3">赵六</p>
+        <p name="ceshi1"></p>
+        <p name="ceshi1"></p>
+    </div>
+
+    <script>
+        // ### 1.获取对应的节点元素
+        console.log(document);
+        console.log(document.documentElement);  // html
+        console.log(document.documentElement.children);
+
+        // 找html里面所有的子节点children
+        var html_children = document.documentElement.children;
+        console.log(html_children); // head body
+        var body = html_children[1];
+        console.log(body);  // body
+        var div = body.children[0];
+        console.log(div);
+        var p0 = div.children[0];
+        console.log(p0);
+        var input = p0.children;
+        console.log(input);
+        var input1 = input[0];
+        console.log(input1);
+
+        // 获取下一个节点对象 nextSibling
+        console.log(input1.nextSibling.nextSibling);
+        // 获取下一个元素节点对象 nextElementSibling
+        var input2 = input1.nextElementSibling;
+        console.log(input2);
+
+        // 获取上一个节点对象 previousSibling
+        console.log(input2.previousSibling);
+        // 获取上一个元素节点对象 proviousSibling
+        console.log(input2.previousElementSibling);
+
+        // 获取input2父节点元素对象
+        console.log(input2.parentElement);
+    </script>
+</body>
+</html>

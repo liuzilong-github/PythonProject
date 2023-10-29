@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子模型</title>
+    <style>
+        #d1
+        {
+            width: 200px;
+            height: 200px;
+            /* 上 右 下 左 top right bottom left */
+            border: solid 10px green;
+            border-top: dotted 3px red;
+            border-right: dashed 5px blue;
+        }
+
+        #d2
+        {
+            width: 200px;
+            height: 200px;
+            border: solid 5px red;
+            /* border-radius: 100px; */
+            border-top-left-radius: 100px;
+            border-bottom-right-radius: 100px;
+        }
+
+        #d3
+        {
+            width: 200px;
+            height: 200px;
+            border: solid 5px red;
+            /* 上 右 下 左 padding会增大盒子的面积 内填充 边框与内容的间距 */
+            /* padding: 50px; */
+            /* 上下 左右 */
+            /* padding: 10px 20px; */
+            /* 上 左右 下 */
+            padding: 10px 20px 30px;
+            /* 上 右 下 左 */
+            /* padding: 10px 20px 30px 10px; */
+            /* padding-left: 30px; */
+        }
+
+        #d4
+        {
+            width: 200px;
+            height: 200px;
+            border: solid 5px red;
+            /* 上 右 下 左 盒子与盒子之间的间距 外边距 */
+            /* margin: 60px */
+            /* 上下 左右 */
+            margin: 10px 20px;
+            /* 上 左右 下 */
+            /* margin: 10px 20px 30px; */
+            /* 上 右 下 左 */
+            /* margin: 10px 20px 30px 10px; */
+            /* margin-left: 30px */
+        }
+
+        #d5
+        {
+            width: 200px;
+            height: 200px;
+            border: solid 5px red;
+            /* 上下0px 左右自动居中 */
+            margin: 0px auto;
+        }
+
+        /* 
+            box-shadow:
+            <length>①： 第1个长度值用来设置对象的阴影水平偏移值。可以为负值 
+            <length>②： 第2个长度值用来设置对象的阴影垂直偏移值。可以为负值 
+            <length>③： 如果提供了第3个长度值则用来设置对象的阴影模糊值。不允许负值 
+            <length>④： 如果提供了第4个长度值则用来设置对象的阴影外延值。可以为负值 
+            <color>： 设置对象的阴影的颜色
+        */
+
+        #d6
+        {
+            width: 100px;
+            height: 100px;
+            border: solid 5px red;
+            box-shadow: 6px 3px 16px 6px black;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <div id="d3">我是d3</div>
+    <div id="d4">我是d4</div>
+    <div id="d5">我是d5</div>
+    <div id="d6"></div>
+</body>
+</html>

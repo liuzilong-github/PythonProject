@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM对象</title>
+</head>
+<body>
+    <script>
+        /*
+            ### BOM
+            js BOM对象: 针对于浏览器的控制 browser object model
+            js 中最大的对象 window 整个浏览器窗口出现的所有内容行为都是window对象中的成员;
+        */
+       console.log(window);
+        // 1.弹出警告框
+        // window.alert("你好");
+        // 2.确认弹窗
+        // var res = window.confirm("确认弹窗");
+        // console.log(res);   // true / false
+        // 3.等待输入弹窗
+        // var res = window.prompt("请输入您的银行密码:");
+        // console.log(res);
+        // 4.关闭浏览器窗口
+        // window.close();
+
+        // innerHeight innerWidth 获取浏览器窗口内部的宽和高
+        console.log(`浏览器窗口内部的宽度为:${window.innerWidth}`);
+        console.log(`浏览器窗口内部的高度为:${window.innerHerght}`);
+
+        // window.open("http://www.baidu.com", "_self");   // 在当前页面跳转
+        // window.open("http://www.baidu.com", "_blank", "width=500,height=500");  // 在新窗口页面跳转
+
+        // ### 定时器
+        /*
+            定时器种类(两种):基于单线程的异步并发程序;
+            window.setInterval(函数名,间隔时间(毫秒))   // 定时执行多次任务
+            window.setTimeout(函数名,间隔时间(毫秒))    // 定时执行一次任务
+
+            window.clearInterval(id号)  // 清除定时器 setInterval
+            window.cleraTimeout(id号)   // 清除定时器 setTimeout
+        */
+
+        var num = 1;
+        function func(){
+            console.log(`我执行了${num}`);
+            num++;
+        };
+
+        var id1 = window.setInterval(func, 1000);
+        var id2 = window.setTimeout(func, 2000);
+        console.log(id1, "id1");
+        console.log(id2, "id2");
+        console.log("我执行完了...")
+        window.clearInterval(id1);
+    </script>
+</body>
+</html>

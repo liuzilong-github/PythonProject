@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常用选择器</title>
+
+    <style>
+        /* 标签选择器 */
+        h1
+        {color:cyan;}
+        /* 类选择器 */
+        .one
+        {color:green;}
+        /* ID选择器 */
+        #two
+        {color:red;}
+
+        /* 组合选择器 */
+        h1,h2,h3,h4
+        {color:goldenrod;}
+
+        /* 越具体指定,优先级就越高 */
+        h1.one
+        {color:gray;}
+        h2#two
+        {color:greenyellow;}
+    </style>
+</head>
+<body>
+    <!-- 
+        标签选择器: 指定的是哪一些标签
+        类选择器: 指定的是哪一类标签
+        ID选择器: 指定的是哪一个标签
+     -->
+     <h1>1号标签111</h1>
+     <h1 class="one">1号标签222</h1>
+     <h2 id="two">2号标签333</h2>
+     <a href="" class="two">我是链接</a>
+     <span id="two">我是span</span>
+     <h3>我是h3标签</h3>
+</body>
+</html>

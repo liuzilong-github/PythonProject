@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float 浮动</title>
+    <style>
+        .content
+        {
+            width: 700px;
+            clear: both;
+        }
+
+        .content .c1
+        {
+            background: red;
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+
+        .content .c2
+        {
+            background: tan;
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+
+        .content .c3
+        {
+            background: blue;
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+
+        .content .c4
+        {
+            background: green;
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+
+        .content2
+        {
+            width: 700px;
+            height: 500px;
+            border: solid 1px red;
+            clear: both;
+        }
+
+        #a1
+        {
+            float: left;
+            width: 100px;
+            height: 100px;
+            border: solid 1px red;
+        }
+
+        #a2
+        {
+            display: block;
+            width: 100px;
+            height: 100px;
+            border: solid 1px red;
+            background: teal;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        块状元素浮动:
+            float:left  向左浮动,元素脱离原始文档流,后面的内容自动补齐
+            float:right 向右浮动,元素脱离原始文档流,后面的内容自动补齐
+            目的: 让块状元素在一排显示
+            clear:both; 清除两边的浮动
+     -->
+
+     <div class="content">
+        <div class="c1"></div>
+        <div class="c2"></div>
+        <div class="c3"></div>
+        <div class="c4"></div>
+     </div>
+
+     <!-- 
+        行内元素浮动:
+            如果对行内元素进行浮动
+            默认会把行内元素升级成行内块状元素,可以设置宽和高
+            消除浮动产生的影响:clear:both;
+      -->
+
+      <div class="content2">
+        <a href="#" id="a1">点击我跳转1</a>
+        <a href="#" id="a2">点击我跳转2</a>
+      </div>
+</body>
+</html>

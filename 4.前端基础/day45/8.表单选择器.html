@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单选择器</title>
+</head>
+<body>
+    用户名: <input type="text">
+    <br>
+    密码 <input type="password">
+    <br>
+    性别选择:
+    <input type="radio" name="sex" value="1">男
+    <input type="radio" name="sex" value="2">女
+    <input type="radio" name="sex" value="3">未知
+
+    <script src="./jquery.js"></script>
+    <script>
+        $(":text");     // 获取type="text"的input标签
+        $(":password");     // 获取type="password"的input标签
+        $(":radio");    // 获取type="radio"的input标签
+    </script>
+</body>
+</html>

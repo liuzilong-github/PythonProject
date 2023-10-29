@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{username}}</h1>
+    </div>
+</body>
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data(){
+            return {
+                username:'chao'
+            }
+        },
+        methods:{
+
+        },
+        // vue还未获取到视图和数据属性之前触发的
+        beforeCreate(){
+            console.log('beforeCreate>>>');
+            console.log(this.$el);
+            console.log(this.$data);
+        },
+        // vue对象获取到了数据属性,但是还没有获得圈地(视图)时触发的
+        created(){
+            console.log('created>>>>');
+            console.log(this.$el);
+            console.log(this.$data);
+        },
+        // vue对象拿到了视图,但是数据属性挂载到视图之前触发的
+        beforeMount(){
+            console.log('beforeMount>>>>');
+            console.log(this.$el);
+            console.log(this.$data);
+        },
+        // vue对象数据属性挂载到视图之后触发的
+        mounted(){
+            console.log('mounted>>>>>>');
+            console.log(this.$el);
+            console.log(this.$data);
+        }
+    });
+</script>
+</html>

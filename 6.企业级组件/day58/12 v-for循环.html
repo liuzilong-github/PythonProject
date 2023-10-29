@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bb{
+            background-color: tan;
+        }
+    </style>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(value,index) in hobby_list" :key="index">{{ value}} -- {{ index }}</li>
+            <!-- value是数组中的元素,index是索引,注意v-for一定要写:key -->
+            <!-- <li v-for="value,index in hobby_list">{{ value }}</li> -->
+        </ul>
+        <ul>
+            <li v-for="(value,index) in person_info" :key="index">{{value}} -- {{index}}</li>
+        </ul>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>商品名称</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(value,index) in goods" :key="index" :class="{bb:value.price>60}">
+                    <td>{{value.name}}</td>
+                    <td>{{value.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data(){
+            return {
+                num:0,
+                hobby_list:[
+                    '抽烟',
+                    '喝酒',
+                    '烫头',
+                    '烫头2',
+                ],
+                person_info:{
+                    name:'永飞',
+                    age:99,
+                    sex:'unknown',
+                },
+                goods:[
+                    {"name":"python入门","price":150},
+                    {"name":"python进阶","price":100},
+                    {"name":"python高级","price":75},
+                    {"name":"python研究","price":60},
+                    {"name":"python放弃","price":110},
+                ]
+            }
+        },
+        methods:{
+            
+        }
+    })
+</script>
+</html>

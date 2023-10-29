@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自动类型转换 Number Boolean String 三者之间的转换</title>
+</head>
+<body>
+    <script>
+        // 1.Number + Boolean
+        var res = 10 + true;
+        var res = 3.4 + true;
+        var res = 10 + 3.1;
+        console.log(res, typeof(res));
+
+        // 2.Number + Boolean + String(对于字符串来说, +号意味着拼接)
+        var res = true + "100";
+        var res = 100 + "101" + 100;
+        console.log(res, typeof(res));
+
+        // 3.除了+号,剩下的都可以做运算(必须是数值)
+        var res = 100 - "101";
+        var res = 100 - "99abc";
+        console.log(res, typeof(res));
+    </script>
+</body>
+</html>

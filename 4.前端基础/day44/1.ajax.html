@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js版本的 ajax 网页无刷新技术</title>
+</head>
+<body>
+    <input type="text" name="city" value=""> <button id="btn">查询</button>
+    <div id="info"></div>
+    <script>
+        var btn = document.getElementById("btn");
+        btn.onclick = function(){
+            var city = document.querySelector("input[name=city]");
+            console.log(city.value);
+
+            // 1.创建ajax请求对象
+            var xhr = new XMLHttpRequest();
+            console.log(xhr);
+            // 2.打开链接
+            // 获取地址: http://wthrcdn.etouch.cn/weather_mini?city=北京
+            // 第三个参数可选 true 或者 false 默认true 代表异步 false 代表同步 可以不写
+            xhr.open("get", `http://wthrcdn.etouch.cn/weather_mini?city=${city.value}`, false);
+            // 3.发送请求
+            xhr.send();
+            /*
+                readyState 存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。
+
+                0: 请求未初始化
+                1: 服务器连接已建立
+                2: 请求已接收
+                3: 请求处理中
+                4: 请求已完成，且响应已就绪
+            */
+            // 4.每当 readyState 改变时, 就会触发 onreadystatechange事件
+            xhr.onreadystatechange = function(){
+                // 服务端的状态码为4,客户端的状态码为200,代表数据已经传输完毕;
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+                        // console.log(xhr.responseText);
+                        // 解析json格式的字符串 => js对象
+                        var res = JSON.parse(xhr.responseText);
+                        // console.log(res);
+                        // console.log(res.data.forecast);
+                        // 获取一周的天气
+                        var data_lst = res.data.forecast;
+                        // 拼装数据
+                        var content = `<table border=1 width=600>`;
+                        content += `<tr> <th>日期</th>  <th>天气</th> </tr>`
+                        for(var i of data_lst){
+                            console.log(i);
+                            content += `<tr> <th>${i.date}</th>  <th>${i.type}</th> </tr>`;
+                        };
+                        content += "</table>";
+                        console.log(content);
+                        // 获取info节点对象
+                        var info = document.querySelector("#info");
+                        // 把表格数据插入到info div中;
+                        info.innerHTML = content;
+                    };
+                };
+            };
+            console.log("我结束了....");
+        };
+        
+    </script>
+</body>
+</html>

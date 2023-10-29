@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-bind:xx="xxattr">xxoo</h1>    <!-- v-bind:动态的标签属性控制,简写 : -->
+        <h1 :xx="xxattr">xxoo</h1>  <!-- v-bind:动态的标签属性控制,简写 : -->
+    </div>
+</body>
+
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data(){
+            return {
+                xxattr:'sss',
+            }
+        }
+    })
+</script>
+
+</html>

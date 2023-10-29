@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ msg }}</h1>
+        <h1>{{ number+1 }}</h1>     <!-- 支持四则运算,简单的js语法都支持 -->
+        <h1>{{ 3+1 }}</h1>
+        <h1>{{ info.name }}</h1>
+        <h1>{{ number>100?'aa':'bb' }}</h1>     <!-- 三元运算 -->
+        <h1>{{ msg2.split('').reverse().join('') }}</h1>    <!-- 常用数据类型的一些方法或者属性都可以直接调用 -->
+    </div>
+</body>
+
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',  // 要通过vue语法来控制id属性值为app的标签,在这个标签内部,就可以使用vue语法
+        // data:{
+        //     msg:'aaaa',
+        // }
+
+        // 以后用这种方式定义数据属性
+        data(){
+            return {
+                msg:'hello world',
+                number:100,
+                info:{name:'chao', age:18},
+                msg2:'hello'
+            }
+        }
+    })
+</script>
+
+</html>

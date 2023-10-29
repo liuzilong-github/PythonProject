@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        {# 可迭代对象都可以用来循环 #}
+        {# 循环列表 #}
+        {% for foo in hobby %}
+            <li>{{ foo }}</li>
+            {% empty %}    {# 当循环的数据为空或者没有这个变量时,显示empty下面的内容 #}
+            <li>什么都没有</li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {# 循环字典 #}
+        {% for foo in d1 %}
+            <li>{{ foo }}</li>  {# 只能获取键 #}
+        {% endfor %}
+
+        {% for key,value in d1.items %}  {# 获取键值对,items,keys,values都可以用 #}
+            <li>{{ key }} -- {{ value }}</li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for foo in hobby %}
+            {# 循环标签对象,通过counter属性可以来记录循环次数 #}
+            <li>{{ forloop.counter }} -- {{ foo }}</li>     {# 从1开始计数 #}
+            <li>{{ forloop.counter0 }} -- {{ foo }}</li>    {# 从0开始计数 #}
+            <li>{{ forloop.revcounter }} -- {{ foo }}</li>      {# 倒序,从1开始计数 #}
+            <li>{{ forloop.revcounter0 }} -- {{ foo }}</li>     {# 倒序,从0开始计数 #}
+            <li>{{ forloop.first }} -- {{ foo }}</li>   {# 如果是第一次循环,就返回True,其他为False #}
+            <li>{{ forloop.last }} -- {{ foo }}</li>    {# 如果是最后一次循环,就返回True,其他为False #}
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for key,value in hobby2.items %}
+            <li>{{ key }} -- {{ value }}</li>
+            {# forloop.parentloop 统计外层循环对象的循环次数 #}
+            {% for v in value %}
+                <li>{{ forloop.parentloop.counter }} -- {{ forloop.counter }} -- {{ v }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for foo in hobby reversed %}
+            <li>{{ foo }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if age > 18 %}
+        <h1>太老了</h1>
+    {% else %}
+        <h1>还挺嫩</h1>
+    {% endif %}
+
+    {% if age > 18 %}
+        <h1>太老了</h1>
+    {% elif age == 18 %}
+        <h1>还行</h1>
+    {% else %}
+        <h1>挺嫩</h1>
+    {% endif %}
+
+    {% if age > 18 or number > 100 %}   {# 符号两边必须要有空格 #}
+        <h1>太老了</h1>
+    {% elif age == 18 %}
+        <h1>还行</h1>
+    {% else %}
+        <h1>挺嫩</h1>
+    {% endif %}
+
+    {% if hobby|length > 3 %}
+        <h1>爱好还挺多</h1>
+    {% else %}
+        <h1>爱好有点少</h1>
+    {% endif %}
+
+    {% with hobby2.xx.0 as kk %}
+        <h1>{{ kk }}</h1>
+    {% endwith %}
+
+    {% with kk=hobby2.xx.0 %}
+        <h1>{{ kk }}</h1>
+    {% endwith %}
+</body>
+</html>

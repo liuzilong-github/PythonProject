@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <title>布局容器</title>
+    <style>
+        .c1{
+            background-color: tan;
+            height: 100px;
+        }
+        .c2{
+            background-color: pink;
+            height: 100px;
+        }
+        .c3{
+            background-color: green;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- container-fluid 占满整个屏幕 -->
+    <!-- container 左右两边有留白 -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- col-md-offset-3 栅格偏移,向右偏移3个栅格的意思 -->
+            <!-- col-md-6 占6个栅格,默认从左边开始 -->
+            <div class="col-md-6 col-md-offset-3">
+                <div class="row">
+                    <div class="col-md-6 c3"></div>
+                </div>
+            </div>
+            <!-- <div class="col-md-8 c2"></div> -->
+        </div>
+    </div>
+    <!--<div class="container c1"></div>-->
+    
+    <script src="jquery.js"></script>
+</body>
+</html>

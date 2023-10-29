@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的调用</title>
+</head>
+<body>
+    <script>
+        function func(){
+            console.log("函数正在执行中1...");
+        };
+
+        // 1.正常调用
+        func();
+
+        // 2.函数的立即执行
+        (function func2(){
+            console.log("函数正在执行中2...");
+        })();
+
+        // 3.匿名函数的立即执行
+        (function(){
+            console.log("函数正在执行中3...");
+        })();
+        
+        // 4.其他立即执行的方法
+        !function(){
+            console.log("函数正在执行中4...");
+        }();
+
+        ~function(){
+            console.log("函数正在执行中5...");
+        }();
+    </script>
+</body>
+</html>

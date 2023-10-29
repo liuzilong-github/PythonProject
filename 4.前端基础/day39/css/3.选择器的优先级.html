@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器的优先级</title>
+    <style>
+        font
+        {color:greenyellow;}
+        .one
+        {color:blue;}
+        #two
+        {color:indigo;}
+        font
+        {color:greenyellow!important;}
+    </style>
+</head>
+<body>
+    <!-- 
+        标签选择器 -> 类选择器 -> ID选择器 -> 行内样式 -> !important
+        大原则: 泛指的元素优先级低,特指的元素优先级高,越具体优先级就越高
+     -->
+     <font style="color:tan;" class="one" id="two">选择器的优先级</font>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐藏显示密码效果</title>
+</head>
+<body>
+    <input type="password" name="pwd" value="111" class="abcd"> <button onclick="change()" id="btn">点我显示密码</button>
+
+    <div>
+        <img src="images/oneal1.jpg" >
+    </div>
+
+    <script>
+        // 效果1: 显示隐藏密码
+        var password = document.querySelector("input[name=pwd]");
+        console.log(password);
+        console.log(password.type);
+        console.log(password.name);
+        console.log(password.value);
+        console.log(password.className);
+
+        function change(){
+            var btn = document.querySelector("#btn");
+            console.log(btn);
+            if(password.type == "password"){
+                password.type = "text";
+                btn.innerHTML = "点我隐藏密码";
+            }else{
+                password.type = "password";
+                btn.innerHTML = "点我显示密码";
+            };
+        };
+
+        // 效果2: 点击换图片
+        var img = document.querySelector("img");
+        console.log(img);
+        img.onclick = function(){
+            console.log(img.src); // http://127.0.0.1:5500/day43/images/oneal1.jpg
+            var arr = img.src.split("/");
+            imgname = arr[arr.length - 1];
+            console.log(arr, imgname);
+            if(imgname == "oneal1.jpg"){
+                img.src = "images/bakeli.jpg";
+            }else{
+                img.src = "images/oneal1.jpg"
+            };
+        };
+    </script>
+</body>
+</html>

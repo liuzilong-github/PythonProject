@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <a href="" v-if="num>20">百度1</a>  <!-- 动态删除或者增加标签,页面渲染开销大 -->
+        <a href="" v-else-if="num<20">百度2</a>
+        <h1 v-else>京东</h1>
+
+        <h1 v-show="num>20">show1</h1>  <!-- 动态展示或者隐藏标签,渲染开销小 -->
+    </div>
+</body>
+
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data(){
+            return {
+                num:21,
+            }
+        }
+        // vm.num = 18; 我们发现当num的值被重新赋值时,vue的视图部分(html)会自动发生变化,这就是数据驱动视图,以后视图的效果都是通过数据来控制的
+        // vm.num = 20;
+    })
+</script>
+
+</html>

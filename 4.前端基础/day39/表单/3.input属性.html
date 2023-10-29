@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input属性</title>
+</head>
+<body>
+    <!-- 
+        placeholder     灰色输入提示
+        required        必填
+        readonly        只能读不能改 可以被提交
+        disabled        只能读不能改 不会被提交
+        size            设置输入框的大小
+        maxlength       输入框最多可以输入多少字符
+        minlength       输入框最少需要输入多少字符
+        autofocus       自动获取焦点,整个页面只能有一个
+        tabindex        设置tab键的切换顺序
+     -->
+     <form action="" method="">
+        用户名: <input type="text" name="username" placeholder="请输入用户名" required tabindex="5">
+        <br>
+        密码: <input type="password" name="pwd" tabindex="4">
+        <br>
+        年龄: <input type="text" name="age" value="18" readonly tabindex="3">
+        <br>
+        邮箱: <input type="text" name="email" value="3097809130@qq.com" disabled>
+        <br>
+        班级: <input type="text" name="classroom" size="100" maxlength="5" minlength="2" tabindex="2">
+        <br>
+        国籍: <input type="text" name="country" autofocus tabindex="1">
+        <br>
+        <input type="submit">
+     </form>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display 转换元素</title>
+    <style>
+        div
+        /* display: inline; 转换成行内元素 */
+        {
+            display: inline;
+            border: solid 1px red;
+            width: 1000px;
+            height: 20px;
+        }
+
+        span
+        /* display: block; 转换成块状元素 */
+        {
+            display: block;
+            width: 100px;
+            height: 50px;
+            border: solid 1px red;
+        }
+
+        a
+        /* display: inline-block; 转换成行内块状元素 */
+        {
+            display: inline-block;
+            width: 500px;
+            height: 30px;
+            border: solid 1px red;
+        }
+
+        p
+        /* display: none; 隐藏元素 */
+        {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        元素的分类:
+            块状元素: block
+            行内元素: inline
+            行内块状元素: inline-block
+     -->
+     <div>第一个div</div>
+     <div>第二个div</div>
+
+     <span>我是span1</span>
+     <span>我是span2</span>
+
+     <a href="#">我是链接1</a>
+     <a href="#">我是链接2</a>
+
+     <p>123456</p>
+</body>
+</html>

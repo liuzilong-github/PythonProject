@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史对象</title>
+</head>
+<body>
+    <button onclick="func1()">查看历史对象</button>
+    <button onclick="func2()">跳转到上一页</button>
+    <button onclick="func3()">跳转到下一页</button>
+    <button onclick="func4()">当前页面刷新</button>
+    <script>
+        function func1(){
+            console.log(history);
+        };
+
+        function func2(){
+            history.go(-1);
+        };
+
+        function func3(){
+            // history.go(1);
+            history.gp(2);
+        };
+
+        function func4(){
+            history.go(0);
+        };
+    </script>
+</body>
+</html>

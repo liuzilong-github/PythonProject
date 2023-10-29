@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位:绝对定位 absolute</title>
+    <style>
+        .gg
+        {
+            width: 200px;
+            height: 200px;
+            border: solid 1px red;
+        }
+
+        .big
+        {
+            width: 1000px;
+            height: 1000px;
+            border: solid 1px red;
+            margin: 100px 220px;
+            position: relative;
+        }
+
+        .c1
+        {
+            background: violet;
+            /* 无效 */
+            /* position: relative; */
+        }
+
+        .c2
+        {
+            background: tan;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            z-index: -1;
+        }
+
+        .c3
+        {background: blue;}
+
+        .c4
+        {background: green;}
+    </style>
+</head>
+<body>
+    <!-- 
+        绝对定位: 参考点默认参考的是body
+        效果: 脱离文档流,后面的内容自动补位
+        使用: 绝对定位会参照父级的相对定位进行移动,如果父级中没有relative,相对于body进行定位;
+            (1) 把想要的父级元素变成relative
+            (2) 把要定位的元素变成 absolute
+     -->
+     <div class="big">
+        <div class="c1 gg"></div>
+        <div class="c2 gg"></div>
+        <div class="c3 gg"></div>
+        <div class="c4 gg"></div>
+     </div>
+</body>
+</html>

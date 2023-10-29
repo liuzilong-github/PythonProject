@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js中的运算符</title>
+</head>
+<body>
+    <script>
+        // 1.++ -- 递增,递减
+        // num++ 先赋值再自增
+        var num = 100;
+        var res = num++;
+        console.log(res, typeof(res));
+        var res = num++;
+        console.log(res, typeof(res));
+        // ++num 先自增再赋值
+        var num = 100;
+        var res = ++num;
+        var res = ++num;
+        console.log(res, typeof(res));
+
+        // 2. === !== (全等于,不全等于)比较两样东西: 1.比较值得大小 2.比较值得类型
+        var res = "1" == 1;
+        console.log(res, typeof(res));
+        var res = "1" === 1;
+        var res = "1" !== 1;
+        console.log(res, typeof(res));
+
+        // 3.&& => and, || => or, ! => not
+        var num = 8;
+        if (num > 5 && num < 10){
+            console.log("ok1~");
+        };
+
+        if(num > 10 || num < 3){
+            console.log("ok2~");
+        };
+
+        var num = 0;
+        if(!num){
+            console.log("ok3~");
+        };
+
+        // 4.三元(目)运算符 [js: 表达式?真值:假值]  [python: 真值 if 条件表达式 else 假值]
+        var age = 18;
+        var res = age >= 18? "成年人": "儿童";
+        console.log(res)
+    </script>
+</body>
+</html>

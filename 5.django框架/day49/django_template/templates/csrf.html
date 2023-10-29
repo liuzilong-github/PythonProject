@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}    {# 加上csrf_token这个标签后,post请求就能通过django的csrf认证机制,就不用注释settings.py的配置了 #}
+        <input type="text" name="uname">
+        <input type="submit">
+    </form>
+
+</body>
+</html>

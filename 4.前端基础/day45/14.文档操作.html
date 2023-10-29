@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档操作</title>
+</head>
+<body>
+    <div id="d1">
+        <h1>亚洲</h1>
+    </div>
+
+    <script src="./jquery.js"></script>
+    <script>
+        $("#d1").before("<a href='http://www.baidu.com'>你的最爱</a>");     // 标签的外部的前面添加元素
+
+        $("#d1").after("<a href='http://www.baidu.com'>你的最爱</a>");     // 标签的外部的后面添加元素
+
+        $("#d1").append("<a href='http://www.baidu.com'>你的最爱</a>");     // 标签的内部的后面添加元素
+
+        $("#d1").prepend("<a href='http://www.baidu.com'>你的最爱</a>");     // 标签的内部的前面添加元素
+    </script>
+</body>
+</html>

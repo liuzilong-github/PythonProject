@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="xx">
+        <div class="c1" :style="{color:c, backgroundColor:b}">
+            <!-- 注意:有-的css属性名称,要改为驼峰格式 -->
+            窗前明月光,地上鞋三双
+        </div>
+        <div class="c1" :style="divstyle">
+            <!-- 注意:有-的css属性名称,要改为驼峰格式 -->
+            窗前明月光,地上鞋三双
+        </div>
+    </div>
+</body>
+
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:'#xx',
+        data(){
+            return {
+                c:'red',
+                b:'green',
+                divstyle:{
+                    'color':'tan',
+                    'backgroundColor':'blue',
+                }
+            }
+        },
+        methods:{
+            
+        }
+    })
+</script>
+
+</html>

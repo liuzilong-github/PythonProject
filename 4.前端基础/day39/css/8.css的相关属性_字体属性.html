@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css的相关属性: 字体属性</title>
+    <style>
+        /* @符制定规则,来设置引入的自定义字体 */
+        @font-face
+        {
+            font-family:"王文";
+            src:url("font/方正舒体.TTF");
+        }
+
+        /* 设置字体属性 */
+        .c1
+        {
+            /* 字体斜体 */
+            font-style:italic;
+            /* 字体粗细 */
+            font-weight:bold;
+            /* 字体大小 */
+            font-size:32px;
+            /* 字体种类 */
+            font-family:"宋体";
+        }
+
+        /* 简写字体1 */
+        .c2
+        {font:italic bold 32px "宋体";}
+
+        /* 简写字体2 */
+        .c3
+        {
+            border:solid 1px red;
+            /* 字体大小/行高比例 字体种类 */
+            font:64px/2 "宋体";
+            background-color:yellow;
+        }
+        
+        /* 自定义字体 */
+        .c4
+        {font:64px/2 "王文;"}
+
+        ul
+        {
+            /* 去掉前面的点 */
+            list-style:none;
+            cursor:wait;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="c1">设置字体相关的属性1</li>
+        <li class="c2">设置字体相关的属性2</li>
+        <li class="c3">设置字体相关的属性3</li>
+        <li class="c4">设置字体相关的属性4</li>
+    </ul>
+</body>
+</html>

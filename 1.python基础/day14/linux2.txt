@@ -1,0 +1,174 @@
+# ### day01
+# ### vmware-tools 插件安装
+
+# part1
+1991 年 芬兰林纳斯发明的. 
+选择在插件文件夹中,右键打开终端
+ls  看一下文件夹里有什么
+sudo ./vmware-install.pl
+一路yes 
+reboot 重启
+shutdown -h now 关机
+
+路径:
+	(1)相对: 以.或者..开头的相对路径
+	(2)绝对: 以/开头的完整路径
+	
+cd + 路径 切换到任意文件夹中
+cd + / 切换到根目录
+cd + ~ 切换到家目录
+cd .  切换到当前目录
+cd .. 切换到上一级目录
+cd -  可以在不同的目录中来回切换
+cd /home/wangwen
+cd wangwen
+pwd   查看当前路径
+
+
+ls    看一眼 你这个文件夹里面有什么
+文件或者目录前面加上了.默认都被隐藏起来
+ls -a 查看所有(包含隐藏的文件)
+ls -l 以列表的形式呈现
+ls -h 可以让文件大小带上单位
+ll 相当于 ls -al
+# 帮助文档 man ls  | man cp
+
+
+# part2
+ctrl + l 清屏  ctrl + c 终止
+# 1.创建文件夹
+mkdir ceshi100
+# 2.创建文件
+touch 123.py
+# 3.创建软连接
+# ln -s 创建连接  (ln -s 指定你想要创建的连接  放到哪个目录下面) 必须是绝对路径
+ln -s /home/wangwen/ceshi100 /home/wangwen/ceshi200
+cd ceshi100 切换到连接里面看文件;
+
+windows  => ipconfig
+linux    => ifconfig
+
+# part3
+# mv 剪切
+mv   从哪个路径  到哪个路径
+mv 123.py ../ceshi300  相对 (剪切)
+mv /home/wangwen/ceshi100/abc.php /home/wangwen/ceshi300/abcccccccc.php 绝对 (剪切并改名)
+
+# cp 复制
+cp  从哪个路径  到哪个路径
+cp lianxi2.html ../ceshi300 相对(复制)
+cp /home/wangwen/ceshi100/lianxi2.html /home/wangwen/ceshi300/lianxi2222.html2222 绝对(复制并改名)
+# 复制文件夹
+cp -r ceshi300 ceshi400 相对(复制)
+cp -r  ~/ceshi100 ~/ceshi400/ceshi1000000000 绝对(复制并改名)
+# -a 无论是文件还是文件夹还是权限一并复制过来 (chmod 777 文件)
+cp -a 
+
+# rm 删除
+rm -rf + 目录
+
+# part4
+nano 文件  ctrl + x 保存+退出  y => 回车
+cat 文件   查看文件内容
+more 于内容比较多的情况用more 支持分页 空格下一页 (空格)
+head -3 文件  查看前三行
+tail -3 文件  查看后三行
+
+
+
+
+
+# ### day02
+
+# 文件权限
+文件类型:
+	d: 目录 -普通文件 l链接文件
+文件类型    所属主   所属组   其他     所属主    所属组   文件大小    文件修改时间    文件名称
+d            rwx      rwx      rwx      wangwen   wangwen   4096       9月  27 17:06    ceshi100
+
+
+r :可读->4  w:可写->2  x:可执行->1
+r => 4
+w => 2
+x => 1
+
+r w x任意拼凑一共是8种权限
+--- => 0
+--x => 1
+-w- => 2
+-wx => 3
+r-- => 4
+r-x => 5
+rw- => 6
+rwx => 7
+
+在家目录中,默认创建一个文件的权限是664
+在根目录中,默认创建一个文件的权限是644
+
+在家目录中,默认创建一个文件夹的权限是775
+在根目录中,默认创建一个文件的权限是755
+
+# 方法一
+chmod + 权限 + 文件名
+chmod 777 111.py
+chmod 777 ceshi100
+# 递归更改文件夹中所有文件的权限;
+chmod -R 777 ceshi1200
+# 方法二
+chmod u-x,g-w,o-r 1.py
+chmod u=wx,g=x,o=r 1.py
+
+
+=>对于目录来讲  
+r   是否呈现里面的文件
+w   是否可以在里面创建文件或文件夹
+x   cd 切不进来  不能访问这个目录
+
+=>对于文件来讲
+r  可以看到文件内容
+w  可以更改删除文件及内容
+x  是否可以执行这个文件 ./abc.sh (shell) 
+
+注意点:
+关注文件或者文件夹的时候,不光要看他的权限,也要看他的类型;
+只能通过权限位第一位来判断,不能单纯通过名字来判定;
+
+# find / grep
+# 按照具体名字进行搜索
+find / -name ABC.py
+# 忽略名字大小写进行查询
+find / -iname ABC.py
+# 只查看是否存在passwd文件
+ls -l passwd
+
+passwd  专门存放用户账户
+shadow  专门存放用户密码
+
+grep "root" passwd
+# 忽略大小写搜索内容
+grep -i "root" passwd
+# 反向搜索除了root字符串外的所有内容
+grep -v "root" passwd
+
+# 挂载
+/dev/sda1  *        2048 37750783 37748736  18G 83 Linux    (主分区)
+/dev/sda2       37752830 41940991  4188162   2G  5 扩展     (扩展分区)
+/dev/sda5       37752832 41940991  4188160   2G 82 Linux 交换 / Solari  (交换分区)
+oom 内存溢出死机 linux不会出现,因为交换分区的存在,可以临时作为内存空间进行调度,如果负载过大,默认杀死后台占空间资源最大的进程,以节省资源
+
+
+sudo fdisk -l 查看设备名
+mount 设备路径  哪个目录
+
+mount /dev/sdc1 /mnt/cdrom
+# 取消挂载
+sudo umount /mnt/cdrom
+
+
+
+
+
+
+
+
+

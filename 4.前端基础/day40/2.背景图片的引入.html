@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景图片的引入</title>
+    <style>
+        /* 鼠标滑过,点亮图片 */
+        div.c1
+        {
+            width: 60px;
+            height: 60px;
+            border: solid 1px gray;
+            background: url("./images/tag.jpg") no-repeat;
+        }
+
+        div.c1:hover
+        {
+            background: url("./images/tag.jpg") no-repeat;
+            background-position: -312px -3.5px;
+        }
+
+        .gg
+        {
+            width: 400px;
+            height: 400px;
+            border: solid 1px red;
+        }
+
+        /* 一张图片的导入 */
+        div.c2
+        {
+            background: url("./images/xiao.jpg") no-repeat;
+            /* 参数1:宽 参数2:高 50px 50px / 100% 100% */
+            /* 控制背景图像的尺寸大小 background-size: 100% 100%; */
+            background-size: 100px auto;
+        }
+
+        /* 多张图片导入 */
+        div.c3
+        {
+            background:
+                url("./images/game/map_19.gif") no-repeat 30px 80px,
+                url("./images/game/map_20.gif") no-repeat 50px 50px,
+                url("./images/game/map_18.gif") no-repeat 100px 50px,
+                url("./images/game/map_14.gif") no-repeat 100px 50px,
+                url("./images/game/map_03.gif");
+        }
+    </style>
+</head>
+<body>
+    <div class="c1"></div>
+    <div class="c2 gg"></div>
+    <div class="c3 gg"></div>
+</body>
+</html>

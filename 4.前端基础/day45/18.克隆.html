@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>克隆</title>
+</head>
+<body>
+    <button class="c1">弹弹弹</button>
+
+    <script src="./jquery.js"></script>
+    <script>
+        $(".c1").click(function(){
+            var btn = $(this).clone(true);  // 克隆,默认是不克隆事件的,加上true参数之后,事件会被绑定上
+            $(this).after(btn);
+        });
+    </script>
+</body>
+</html>

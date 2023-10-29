@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 3.使用子组件 用子 -->
+        <!-- <xx></xx> -->
+        <!-- <xx2></xx2> -->
+        <App></App>
+        <!-- content header footer aside section nav H5有一些新标签,注意,组件名称尽量不要和标签名称冲突 -->
+    </div>
+</body>
+<script src="vue.js"></script>
+<script src="axios.js"></script>
+<script>
+    // 组件化开发(将页面的每块功能,单独封装为一个组件,哪个页面用哪些组件,就直接拿到这几个组件,拼到页面上展示)
+    // 1.声明子组件 声子
+    let Vheader = {
+        data(){
+            return {
+                nav_list:['个人中心','登录','注册','username']
+            }
+        },
+        template:`
+            <div>
+                <h1>{{nav_list}}</h1>
+                <h2>{{nav_list}}</h2>
+                <h4 style="color:green;">{{ff}}</h4>
+            </div>
+        `,
+        props:['ff',],
+    };
+
+    let xxx = {
+        data(){
+            return {
+                content_list:['xxx','ooo']
+            }
+        },
+        template:'<h1 style="color:red;">{{content_list}}</h1>',
+    };
+
+    let App = {
+        data(){
+            return {
+                'xxx':'ooo',
+                num:1000,
+            }
+        },
+        // <Vheader ff="123"></Vheader> 静态传值
+        template:`
+            <div class="app">
+                <Vheader :ff="num"></Vheader>
+                <xxx></xxx>
+            </div>
+        `,
+        components:{
+            Vheader,
+            xxx,
+        }
+    }
+
+    // 全局组件 不需要挂载,直接使用
+    Vue.component('Kk', {
+        data(){
+            return {
+                name:'全局组件!!!'
+            }
+        },
+        template:'<h1 style="color:tan;">{{name}}</h1>',
+    })
+
+    let vm = new Vue({
+        el:"#app",
+        components:{
+            App,
+        }
+    })
+</script>
+</html>

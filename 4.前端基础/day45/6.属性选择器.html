@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性选择器</title>
+</head>
+<body>
+    <div class="c1" xx="lnh">
+        跟着老男孩老师学思想,35岁之前不要结婚
+    </div>
+    <script src="jquery.js"></script>
+    <script>
+        // 通过属性名查找标签
+        $("[class]");
+        $("[xx]");  // 自定义属性
+        // 通过属性名对应属性值来查找标签
+        $("[class='c1']");
+        $("[xx=lnh]");  // 自定义属性
+    </script>
+</body>
+</html>

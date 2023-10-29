@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型</title>
+</head>
+<body>
+    <script>
+        /* 
+            数据类型: 分为两大类(基本数据类型 + 引用数据类型)
+            基本数据类型: Boolean, Number, String, undefined, null
+            引用数据类型: Object(Array, function, Date ...)
+        */
+
+        // ### 1.Boolean 布尔类型
+        var a1 = true;
+        var a1 = false;
+        console.log(a1, typeof(a1));
+
+        // ### 2.Number 数字类型
+        var num = 0b101;
+        var num = 0o127;
+        var num = 0xff;
+        var num = 1000;
+        var num = 3.13;
+        var num = 3.13e2;
+        // Infinity 无穷大
+        var num = 3.13e999999999999999999999999999999;
+        // -Infinity 负无穷大
+        var num = -3.13e99999999999999999999999999999;
+        console.log(num, typeof(num));
+
+        // NAN => not a number 不是一个数字
+        /*
+            1.NaN和任何数字计算都是NaN
+            2.与NaN作比较,除了NaN != NaN为真,剩下的都是false
+        */
+       var num = 10 - "abc";
+       var num = NaN + 1;
+       var num = NaN == NaN;
+       var num = NaN != NaN;    // true
+       var num = NaN > 100;     // false
+       var num = isNaN(NaN);    // true
+       console.log(num, typeof(num));
+
+        // ### 3.String 字符串类型
+        // 单引号 ''
+        var string = 'I love js';
+        // 双引号
+        var string = "i love python very much";
+        // 在转义字符前面加\,防止转义,原型化输出
+        var string = "我爱你,\\n 中国";
+        console.log(string);
+        // 反引号`` 1.支持跨行 2.解析变量
+        // 1.支持跨行
+        var string = `
+        <ul>
+            <li>111<li>
+        <ul>
+        `;
+        // 2.解析变量 ${变量名}
+        var name = "赵沈阳";
+        var string = `${name}`;
+        console.log(string, typeof(string));
+
+        // ### 4.Object 对象类型
+        // 1.定义一个空对象
+        var obj = new Object();
+        var obj = {};
+        console.log(obj, typeof(obj));
+
+        // 2.js对象(字典格式)
+        var obj = {"a":1, "b":2};
+        console.log(obj, typeof(obj));
+
+        // 3.js对象,可以在类外添加成员
+        obj.name = "张三";
+        console.log(obj, typeof(obj));
+
+        // 4.js对象(数组格式)
+        var arr = new Array();
+        var arr = [];
+        arr[0] = 10;
+        arr[1] = 11;
+        arr[2] = 12;
+        var arr = [10, 11, 12, 13];
+        console.log(arr, typeof(obj));
+
+        // ### 5.function 函数类型(归属于object)
+        function func(){
+            console.log("我是函数");
+        };
+        func();
+        console.log(func, typeof(func));
+
+        // ### 6.undefined 未定义类型
+        var a;
+        console.log(a, typeof(a));
+
+        // 注意: unll 可以理解成关键字(等价于python中的None)
+        var a = null;
+        console.log(a, typeof(a))
+    </script>
+</body>
+</html>

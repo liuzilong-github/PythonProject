@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>强制转换 - Boolean</title>
+</head>
+<body>
+    <script>
+        /* 
+            布尔类型为假的七种情况
+            0 0.0 '' NaN undefined null false
+        */
+       var a = false;
+       var a = null;
+       var a = 0;
+       var a = 0.0;
+       var a = '';
+       var a = NaN;
+       var a = undefined;
+       // 注意点: 空数组,空对象都是true
+       var a = [];  // true
+       var a = {};  // true
+       var res = Boolean(a);
+       consloe.log(res, typeof(res));
+    </script>
+</body>
+</html>

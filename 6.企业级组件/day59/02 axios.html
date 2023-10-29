@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>天气预报!!!</h1>
+        <h1>{{data}}</h1>
+    </div>
+</body>
+<script src="vue.js"></script>
+<script src="axios.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data(){
+            return {
+                data:'',
+            }
+        },
+        created(){
+            // axios.get('http://wthrcdn.etouch.cn/weather_mini?city=北京')
+            axios.get('http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.search.catalogSug&query=大悲咒')
+                    .then((res)=>{
+                        // console.log(res);
+                        // console.log(this);
+                        this.data = res.data.data.ganmao;
+                    }).catch(function(error){})
+        },
+    })
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关系选择器</title>
+    <style>
+        /* 多行注释 */
+        /* 包含选择器/后代选择器 */
+        ul li
+        {color:darkslateblue;}
+        /* 父子选择器 */
+        ul>li
+        {color:yellow;}
+        /* 相邻选择器 特指下面的一个 */
+        ol+li
+        {color:green;}
+        /* 兄弟选择器 特指下面一堆 */
+        ol~li
+        {color:deeppink;}
+    </style>
+</head>
+<body>
+    <ul>
+        <li>动漫频道</li>
+        <li>学习频道</li>
+        <li>直播频道</li>
+        <li>游戏频道</li>
+        <ol>
+            <li>少儿频道</li>
+            <li>智慧树,大风车</li>
+            <li>老年人频道</li>
+        </ol>
+        <li>授课直播</li>
+        <li>亚洲捆绑</li>
+    </ul>
+</body>
+</html>

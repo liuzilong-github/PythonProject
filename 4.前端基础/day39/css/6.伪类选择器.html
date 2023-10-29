@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器</title>
+    <style>
+        /* 鼠标悬停的时候触发 */
+        a:hover
+        {color:teal;}
+        /* 列表中第一个元素 */
+        ul li:first-child
+        {color:yellow;}
+        /* 列表中最后一个元素 */
+        ul li:last-child
+        {color:green;}
+        /* 列表中具体某一个元素 */
+        ul li:nth-child(4)
+        {color:red;}
+        /* 偶数个2n / even  奇数个2n-1 / odd n不可换 */
+        ul li:nth-child(even)
+        {color:turquoise;}
+        ul li:nth-child(odd)
+        {color:violet;}
+
+        /* 小练习 */
+        /* 1.写一个table表格,设置一个背景色 */
+        table
+        {background-color:green;}
+        /* 偶数行颜色为蓝色 */
+        table tr:nth-child(2n)
+        {background-color:blue;}
+        /* 第3,6,9 3倍行颜色为黄色 */
+        table tr:nth-child(3n)
+        {background-color:yellow;}
+        /* 鼠标滑过时,颜色变为红色 */
+        table tr:hover
+        {background-color:red;}
+    </style>
+</head>
+<body>
+    <a href="">老男孩教育</a>
+    <ul>
+        <li>马春妮</li>
+        <li>孙坚</li>
+        <li>晓东</li>
+        <li>文东</li>
+        <li>王伟</li>
+        <li>好心</li>
+        <li>蜂拥</li>
+        <li>倩倩</li>
+        <li>石超</li>
+        <li>帅帅</li>
+    </ul>
+
+    <!-- 
+        小练习:
+            1.写一个table表格,设置一个背景色
+            2.偶数行颜色为蓝色
+            3.第3,6,9 3倍行颜色为黄色
+            4.鼠标滑过时,颜色变为红色
+     -->
+
+     <!-- 
+        颜色设置:
+            RGB:    三原色
+            R:red   0~255 0~ff
+            G:green 0~255 0~ff
+            B:blue  0~255 0~ff
+
+            1.使用rgb方式表达颜色
+                rgb(100,100,100)    三原色的设置
+                rgba(100,100,100,0~1) 三原色+透明度设置
+            2.使用十六进制的方式表达颜色
+                f -> 15 1111 ff -> 255 1111 1111
+                纯红色: # ff 00 00  => #f00(简写)
+                纯绿色: # 00 ff 00  => #0f0(简写)
+                纯蓝色: # 00 00 ff  => #00f(简写)
+      -->
+      <table border="1" style="width:600px;" cellspacing="0" cellpadding="0">
+        <tr>
+            <td style="background-color: #800000;">111</td><td style="background-color:#0f0;">222</td><td  style="background-color:#00f;">333</td><td>444</td>
+        </tr>
+        <tr>
+            <td  style="background-color:rgb(100,100,100);">111</td><td>222</td><td>333</td><td>444</td>
+        </tr>
+        <tr>
+            <td style="background-color:rgba(100,100,100,0.7);">111</td><td>222</td><td>333</td><td>444</td>
+        </tr>
+        <tr>
+            <td>111</td><td>222</td><td>333</td><td>444</td>
+        </tr>
+        <tr>
+            <td>111</td><td>222</td><td>333</td><td>444</td>
+        </tr>
+        <tr>
+            <td>111</td><td>222</td><td>333</td><td>444</td>
+        </tr>
+        <tr>
+            <td>111</td><td>222</td><td>333</td><td>444</td>
+        </tr>
+        <tr>
+            <td>111</td><td>222</td><td>333</td><td>444</td>
+        </tr>
+        <tr>
+            <td>111</td><td>222</td><td>333</td><td>444</td>
+        </tr>
+        <tr>
+            <td>111</td><td>222</td><td>333</td><td>444</td>
+        </tr>
+
+      </table>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 背景属性</title>
+    <style>
+        .c1
+        {
+            /* 具体写法 */
+            width: 600px;
+            height: 600px;
+            border: solid 1px red;
+            background-color: yellow;
+            /* 控制背景图 */
+            background-image: url("./images/xiao.jpg");
+            /* 控制是否平铺 repeat-x repeat-y no-repeat repeat(默认) */
+            background-repeat: no-repeat;
+            /* 控制背景图像的位置: 参数1 控制左右 参数2控制上下 */
+            /* background-position: 50% 50% */
+            /* 固定背景图使用 fixed 了解 */
+            background-attachment: fixed;
+        }
+
+        .c2
+        {
+            /* 简写 */
+            width: 600px;
+            height: 600px;
+            margin: 10px 20px;
+            border: solid 1px red;
+            /* 图片 是否平铺 [图片位置] */
+            background: url("./images/xiao.jpg") no-repeat 50% 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="c1"></div>
+    <div class="c2"></div>
+</body>
+</html>

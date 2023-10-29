@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组对象的相关方法</title>
+</head>
+<body>
+    <script>
+        // 定义一个数组
+        var arr = Array();
+        var arr = Array(10,11,12);
+        var arr = [15,16,17];
+        console.log(arr, typeof(arr));
+
+        // ### 1.增
+        var arr = [];
+        arr[0] = 10;
+        arr[1] = 11;
+        arr[2] = 12;
+        // js特征: 允许在一个临时的索引值上插入数据
+        arr[10] = 50;
+        console.log(arr);
+        console.log(arr[5]);
+
+        // (1) push 从数组的最后插入元素 [相当于python中的append]
+        var arr = [];
+        var res = arr.push(111);
+        var res = arr.push(222);
+        var res = arr.push(333);
+        console.log(res, arr);
+
+        // (2) unshift 从数组的前面插入元素 [相当于python中的insert]
+        var arr = [100,101];
+        var res = arr.unshift(1);
+        var res = arr.unshift(333);
+        console.log(res, arr);
+
+        // (3) concat 迭代追加 [相当于python中的extend]
+        var arr1 = [1,2,3];
+        var arr2 = ["您好","我好","大家好"];
+        var res = arr1.concat(arr2);
+        console.log(res, typeof(res));
+
+        // ### 2.删
+        // (1) delete 删除
+        /* 把值删掉了,原位置用空来取代,返回undifined */
+        var arr = [1, 2, 3, "你好", "我好", "她也好"];
+        delete arr[1];
+        console.log(arr);
+        console.log(arr[1]);
+
+        // (2) pop 从后面删除
+        var arr = [1, 2, 3, "你好", "我好", "她也好"];
+        var res = arr.pop();
+        console.log(res, arr);
+
+        // (3) shift 从前面删删除
+        var arr = [1, 2, 3, "你好", "我好", "她也好"];
+        var res = arr.shift();
+        console.log(res, arr);
+
+        // ### 特别splice 从指定位置往后进行删除或者添加
+        /* arr.splice(从第几个位置开始,删除几个,[可选的是添加的元素]) */
+        var arr = [1, 2, 3, "你好", "我好", "她也好"];
+        // 从第2个位置开始,删除2个
+        var ress = arr.splice(2,2);
+        console.log(res, arr);
+
+        // 从第2个位置开始,删除0个,添加"hello". "world"
+        var arr = [1, 2, 3, "你好", "我好", "她也好"];
+        var res = arr.splice(1,0,"hello","world");
+        console.log(res, arr);
+
+        // ### 3.改,查
+        var arr = [1, 2, 3, "你好", "我好", "她也好"];
+        // 修改元素
+        arr[3] = "你不好";
+        // 获取元素
+        console.log(arr[3]);
+        console.log(arr);
+
+        // ### 4.其他方法
+        // 拼接字符串 join
+        /* split 和 join是一对 */
+        var arr = ["you","can","you","up"];
+        var res = arr.join("#");
+        console.log(res);
+        
+        // 数组元素反转 reverse
+         var arr = [100,200,3,150];
+         var res = arr.reverse();
+         console.log(res);
+
+        // 截取数组的一部分 slice
+        /* arr.slice(开始值,结束值) 数组的切片 留头舍尾 [支持逆向下标] */
+        var arr = ["宋健","何旭彤","刘利伟","高雪峰","戈隆","王致和","马生平"];
+        var res = arr.slice(2);
+        // var res = arr.slice(2,4);
+        var res = arr.slice(-3,-1);
+        console.log(res);
+
+        // 排序 默认升序 sort
+        var arr = [1,2,3,4,9,22,21];
+        var arr = ["1","2","3","4","9","22","21"];
+        var res = arr.sort();
+        console.log(res);
+
+        var arr = [100,1,2,3,4,9,22,21];
+        // sorted 里面的参数是一个函数,通过函数进行升序或者降序排序
+        /* return 1代表交换位置, 如果return -1代表不交换位置 */
+        var res = arr.sort(function(a,b){
+            if(a>b){
+                return -1;
+            }else{
+                return 1;
+            };
+        });
+        console.log(res);
+
+        /*
+        python 冒泡排序:
+
+        nums = [1,22,3,2,4,9,21];
+        def bubble_sort(nums):
+            for i in range(len(nums -1)):
+                for j in range(len(nums) - i - 1):
+                    if nums[j] > nums[j + 1]:
+                        nums[j], nums[j + 1] = nums[j + 1], nums[j]
+                break;
+            return nums
+
+        res = bubble_sort(nums)
+        print(res)
+        
+        */
+    </script>
+</body>
+</html>

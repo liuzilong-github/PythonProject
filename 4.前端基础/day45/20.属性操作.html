@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性操作</title>
+</head>
+<body>
+    <div class="c1">
+        div1
+    </div>
+
+    <input type="radio" name="sex" id="male">男
+    <input type="radio" name="sex" checked id="female">女
+
+    <script src="./jquery.js"></script>
+    <script>
+        $(".c1").attr({'xx':'oo', 'xx1':'oo1'});    // 设置属性
+        $(".c1").attr('xx');    // 查看属性对应的值
+
+        // prop方法
+        // 针对的是checked selected enabled disabled属性
+        // 用法:
+        $("#female").prop('checked');   // 查看属性,得到true表示有这个属性,false表示没有这个属性
+        $("#female").prop('checked', false);    // 设置取消选中
+        $("#female").prop('checked', true);     // 设置选中
+    </script>
+</body>
+</html>

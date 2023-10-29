@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <h1>{{atag}}</h1> 和v-text指令系统做的是一样的 -->
+        <h1 v-text="atag"></h1>
+        <h1 v-html="atag"></h1>     <!-- 能够将标签字符串识别成标签效果 -->
+        <h1 v-text="num"></h1>
+        <h1 v-text="num+1"></h1>
+    </div>
+</body>
+
+<script src="vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data(){
+            return {
+                atag:'<a href="http://www.baidu.com">百度</a>',
+                num:20,
+            }
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+{#    <h1>32期皇家会所会员登录界面</h1>#}
+{#    <form action="" method="post">#}
+{#        {% csrf_token %}#}
+{#        <div>{{ error }}</div>#}
+{#        用户名: <input type="text" name="xname" vlaue="{{ username }}">#}
+{#        密码: <input type="password" name="pwd" value="{{ password }}">#}
+{#        <input type="submit">#}
+{#    </form>#}
+
+    <h1>32期皇家会员ajax登录界面</h1>
+    用户名: <input type="text" id="username">
+    密码: <input type="password" id="password">
+    <button id="btn">ajax提交</button>
+    <h1 id="ajax_error" style="color:Red;"></h1>
+
+</body>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<script>
+    $('#btn').click(function(){
+        var uname = $("#username").val();
+        var password = $("#password").val();
+        {#var token = $("[name='csrfmiddlewaretoken']").val()#}
+
+        $.ajax({
+            type: 'post',
+            url: '/login/',
+            contentType: 'application/json',
+            data: JSON.stringify({xname: uname, pwd: password}),
+            headers: {   // 设置请求头键值对
+                'X-CSRFToken': $.cookie('csrftoken'),
+            },
+            success: function(res){
+                console.log('success', res);
+            },
+            error: function(error){
+                console.log('error', error);
+                $('#ajax_error').text(error.responseText);
+
+            }
+        })
+
+    })
+</script>
+
+</html>

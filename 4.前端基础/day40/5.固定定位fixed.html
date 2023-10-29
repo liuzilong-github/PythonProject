@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位:固定定位 fixed</title>
+    <style>
+        /* *号代表通配选择符,代表所有标签,默认标签中含有默认的间距,要在一开始的时候全部去掉 */
+        *
+        {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body
+        {
+            height: 2000px;
+        }
+
+        .c1
+        {
+            width: 500px;
+            height: 600px;
+            border: solid 1px red;
+            background-color: green;
+            position: fixed;
+            left: 50%;
+            margin-left: -250px;
+            top: 50%;
+            margin-top: -300px;
+        }
+
+        /* 
+            transition-property: 检索或设置对象中的参与过度的属性
+            transition-duration: 检索或设置对象过度的时间
+            transition-timing-function: 检索或设置对象中过度的动画类型
+            transition-delay: 检索或设置对象延迟过度的时间
+        */
+        img
+        {
+            position: fixed;
+            bottom: 20px;
+            left: -100px;
+            transition: all 1s ease 0.1s;
+        }
+
+        img:hover
+        {
+            left: 0px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/xiao.jpg" >
+    <div class="c1">我没动</div>
+    <p>111222333444555666</p>
+</body>
+</html>

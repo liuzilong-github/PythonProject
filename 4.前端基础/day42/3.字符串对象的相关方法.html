@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串对象的相关方法</title>
+</head>
+<body>
+    <script>
+        var string = "to be or not to be";
+        // 1.获取字符串长度 length
+        var res = string.length;
+        console.log(res);
+        var res = string[-1];
+        console.log(res);
+
+        // 2.清楚两侧的空白 trim [相当于python中的strip]
+        var string = "    to be or not to be   ";
+        var res = string.trim();
+        console.log(string);
+        console.log(res);
+
+        // 3.获取首次出现的位置 indexOf [python中的find]
+        /* 找不到返回-1 */
+        var string = "to be or not to be";
+        var res = string.indexOf("be");
+        console.log(res);
+
+        // 4.获取最后一次出现的位置 lastindexOf
+        /* 找不到返回-1 */
+        var res = string.lastIndexOf("zzz");
+        console.log(res);
+
+        // 5.连接字符串 concat [相当于python中的os.path.join / +号]
+        var res = string.concat("d:\\", "python32\\", "day42");
+        console.log(res);
+
+        // 6.截取字符串 slice
+        /* string.slice(开始值,结束值)字符串的切片 留头舍尾 [支持逆向下标] */
+        var string = "111222333e or not to be";
+        var res = string.slice(1,7);
+        var res = string.slice(-5,-1);  // to b
+        // var res = string.slice(-5,-10);  // 截取不到返回空
+        console.log(res);
+
+        // 7.截取字符串 substr
+        /* string.substr(开始值,截取几个) */
+        var string = "111222333e or not to be";
+        var res = string.substr(3,4);
+        console.log(res);
+
+        // 8.拆分字符串 split [相当于python中的split]
+        var string = "11122233e or not to be";
+        var res = string.split(" ");
+        console.log(res);
+
+        // 9.大小写 toUpperCase toLowerCase
+        var string = "11122233e Or noT tO be";
+        var res = string.toUpperCase();
+        var res = string.toLowerCase();
+        console.log(res);
+
+        // 10.search 匹配第一次找到的索引位置,找不到返回-1
+        var string = "aaabbb oldboy ccc";
+        var res = string.search(/oldboy/);
+        console.log(res);
+
+        // 11.match返回匹配的数据
+        /* /正则表达式/修饰符 g:全局匹配 i:不区分大小写 m:多行匹配 */
+        var string = "我的电话是 : 13838384388 你的电话是: 13854381438";
+        var res = string.match(/\d{11}/);   // 匹配一个
+        var res = string.match(/\d{11}/g);  // 匹配多个(需要加上修饰符g)
+        console.log(res);
+        console.log(res[0]);
+        console.log(res[1]);
+
+        // 12.字符串替换 replace
+        /* replace默认只替换一次 */
+        var string = "to be or not to be";
+        var res = string.replace("to", "two");
+        console.log(res);
+
+        // 全部替换
+        // 方法一
+        function myreplace(string, a, b){
+            /*
+                找最后一个to,如果找不到返回-1
+                如果能找到就不停的进行替换,知道-1为止,终止循环;
+            */
+            while(string.lastIndexOf(a) != -1){
+                console.log(1);
+                string = string.replace(a, b);
+            };
+            return string;
+        };
+
+        var string = "to be or not to be";
+        var res = myreplace(string, "to", "two");
+        console.log(res);   // two be or not two be
+
+        // 方法二
+        var string = "to be or not to be";
+        var res = string.replace(/to/g, "two");
+        console.log(res);
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单对象属性选择器</title>
+</head>
+<body>
+    <input type="radio" name="sex" value="1">男
+    <input type="radio" name="sex" value="2">女
+    <input type="radio" name="sex" value="3">未知
+
+    <select name="city" id="city">
+        <option value="1">上海</option>
+        <option value="2">深圳</option>
+        <option value="3">北京</option>
+    </select>
+
+    <script src="./jquery.js"></script>
+    <script>
+        $(":checked");  // 能够找到input选择框和select下拉选择框中被选中的option标签
+        $(":selected");   // 找到的是select下拉框中被选中的option标签
+    </script>
+</body>
+</html>

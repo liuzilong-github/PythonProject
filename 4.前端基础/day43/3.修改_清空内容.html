@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 修改/清空内容</title>
+</head>
+<body>
+    <button onclick="func1()">修改内容</button>
+    <button onclick="func2()">清空内容</button>
+    <div id="box" style="border:solid 1px red">
+        <p>我是最帅的最有钱的 <a href="#">最有味的</a> 男人</p>
+    </div>
+
+    <script>
+        // innerHTML 获取标签里面的所有内容(标签 + 文本)
+        // innerText 获取标签里面所有的字符串(文本)
+        var p = document.querySelector("#box p")
+        console.log(p);
+        // document.write 把数据以字符串的形式展现在浏览器中
+        document.write(p);
+
+        // 点击button触发如下任务 -- 修改
+        function func1(){
+            var content = p.innerHTML;
+            // var content = p.innerText;
+            console.log(content);
+            // p.innerHTML = `我被修改了 <a href=''>点击我中大奖</a>...1`;
+            p.innerText = `我被修改了 <a href=''>点击我中大奖</a>...2`;
+        };
+
+        // 点击button触发如下任务 -- 清空
+        function func2(){
+            p.innerHTML = '';
+        };
+    </script>
+</body>
+</html>

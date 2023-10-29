@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模态框</title>
+    <style>
+        .box{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            background-color: greenyellow;
+            display: none;
+        };
+
+        .content{
+            border: solid 1px red;
+            width: 500px;
+            height: 500px;
+            background-color: tan;
+            margin: auto;
+            margin-top: 14%;
+        }
+    </style>
+</head>
+<body>
+    <button id="login">登录</button>
+    <div class="box">
+        <div class="content">
+            <span class="close">x</span>
+            <br>
+            <span>账号: <input type="text"></span>
+            <br>
+            <span>密码: <input type="password"></span>
+        </div>
+    </div>
+
+    <script>
+        var btn = document.getElementById("login");
+        var box = document.querySelector(".box");
+        var close = document.querySelector(".close");
+        btn.onclick = function(){
+            console.log(11);
+            box.style.display = "block";
+        };
+        close.onclick = function(){
+            box.style.display = "none";
+        };
+    </script>
+</body>
+</html>
